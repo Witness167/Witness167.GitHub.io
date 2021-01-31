@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-30T18:05:23.803Z</updated>
+  <updated>2021-01-31T07:53:35.605Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>latex</title>
+    <link href="http://example.com/2021/01/31/latex/"/>
+    <id>http://example.com/2021/01/31/latex/</id>
+    <published>2021-01-31T07:53:35.000Z</published>
+    <updated>2021-01-31T07:53:35.605Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>MarkDown_use_guide</title>
