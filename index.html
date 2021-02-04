@@ -264,10 +264,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-02-04 22:24:38 / Modified: 22:56:23" itemprop="dateCreated datePublished" datetime="2021-02-04T22:24:38+08:00">2021-02-04</time>
+              <time title="Created: 2021-02-04 22:24:38" itemprop="dateCreated datePublished" datetime="2021-02-04T22:24:38+08:00">2021-02-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-05 00:06:47" itemprop="dateModified" datetime="2021-02-05T00:06:47+08:00">2021-02-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -294,7 +300,18 @@
 <p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210204222751364.png" alt="image-20210204222751364"></p>
 <p>其中的省略号是java代码的一部分，表明这个方法可以接受任意数量的对象。</p>
 <p>printf()方法接受两个参数，一个是格式字符串，另一个是object[]数组，其中保存着所有的参数（如果调用者提供的是整形数组或者是其他类型的值，自动装箱功能将把他转换成对象）</p>
-<p><img src="C:\Users\LiaoXinxin\AppData\Roaming\Typora\typora-user-images\image-20210204223853992.png" alt="image-20210204223853992"></p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210204223853992.png" alt="image-20210204223853992"></p>
+<h1 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h1><p><code>这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https://www.baeldung.com/a-guide-to-java-enums 。</code></p>
+<h2 id="1-概览"><a href="#1-概览" class="headerlink" title="1 概览"></a>1 概览</h2><p>优势：</p>
+<ol>
+<li>相比于定义常量更具可读性</li>
+<li>预先记录可接受值的列表，避免传入无效值引起意外行为</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> shuang.kou.enumdemo.enumtest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaStatus</span> </span>&#123;</span><br><span class="line">    ORDERED,</span><br><span class="line">    READY, </span><br><span class="line">    DELIVERED; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-自定义枚举方法"><a href="#2-自定义枚举方法" class="headerlink" title="2 自定义枚举方法"></a>2 自定义枚举方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pizza</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> PizzaStatus status;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaStatus</span> </span>&#123;</span><br><span class="line">        ORDERED,</span><br><span class="line">        READY,</span><br><span class="line">        DELIVERED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDeliverable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getStatus() == PizzaStatus.READY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Methods that set and get the status variable.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-使用-比较枚举类型"><a href="#3-使用-比较枚举类型" class="headerlink" title="3 使用==比较枚举类型"></a>3 使用==比较枚举类型</h2><p>枚举类型确保jvm中仅存在一个常量实例，可以安全的使用==运算法比较两个变量。也可以提供编译时和运行时的安全性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//运行时</span></span><br><span class="line"><span class="keyword">if</span>(testPz.getStatus().equals(Pizza.PizzaStatus.DELIVERED)); </span><br><span class="line"><span class="keyword">if</span>(testPz.getStatus() == Pizza.PizzaStatus.DELIVERED); </span><br><span class="line"><span class="comment">//运行时候的安全，当两个值均为null时，equals会返回nullpointorexception错误</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(testPz.getStatus().equals(TestColor.GREEN));</span><br><span class="line"><span class="keyword">if</span>(testPz.getStatus() == TestColor.GREEN);</span><br><span class="line"><span class="comment">//编译时安全，比较时，equals返回true，但是逻辑上是错的，使用==，编译器表示类型不兼容错误。</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
