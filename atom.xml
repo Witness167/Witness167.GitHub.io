@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-02T09:10:12.379Z</updated>
+  <updated>2021-02-04T14:49:25.157Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>picground</title>
+    <link href="http://example.com/2021/02/04/picground/"/>
+    <id>http://example.com/2021/02/04/picground/</id>
+    <published>2021-02-04T14:47:22.000Z</published>
+    <updated>2021-02-04T14:49:25.157Z</updated>
+    
+    
+    
+    
+    <category term="other" scheme="http://example.com/categories/other/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>java_fundation</title>
+    <link href="http://example.com/2021/02/04/java-fundation/"/>
+    <id>http://example.com/2021/02/04/java-fundation/</id>
+    <published>2021-02-04T14:24:38.000Z</published>
+    <updated>2021-02-04T14:24:38.645Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>dynamic_programming</title>
@@ -60,7 +88,7 @@
     <link href="http://example.com/2021/01/31/latex/"/>
     <id>http://example.com/2021/01/31/latex/</id>
     <published>2021-01-31T07:53:35.000Z</published>
-    <updated>2021-01-31T08:37:48.355Z</updated>
+    <updated>2021-02-04T14:49:25.045Z</updated>
     
     
       
@@ -73,10 +101,10 @@
     
     
     
-    <category term="latex" scheme="http://example.com/categories/latex/"/>
+    <category term="other" scheme="http://example.com/categories/other/"/>
     
     
-    <category term="latex" scheme="http://example.com/tags/latex/"/>
+    <category term="other" scheme="http://example.com/tags/other/"/>
     
   </entry>
   
@@ -85,7 +113,7 @@
     <link href="http://example.com/2021/01/31/MarkDown-use-guide/"/>
     <id>http://example.com/2021/01/31/MarkDown-use-guide/</id>
     <published>2021-01-30T18:03:23.000Z</published>
-    <updated>2021-01-30T18:05:23.803Z</updated>
+    <updated>2021-02-04T14:49:25.045Z</updated>
     
     
       
@@ -101,10 +129,10 @@
     
     
     
-    <category term="MarkDown" scheme="http://example.com/categories/MarkDown/"/>
+    <category term="other" scheme="http://example.com/categories/other/"/>
     
     
-    <category term="MarkDown" scheme="http://example.com/tags/MarkDown/"/>
+    <category term="other" scheme="http://example.com/tags/other/"/>
     
   </entry>
   
