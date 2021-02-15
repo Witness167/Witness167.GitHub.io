@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-06T14:01:40.920Z</updated>
+  <updated>2021-02-15T14:54:18.814Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,14 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>java_fundation_example</title>
-    <link href="http://example.com/2021/02/06/java-fundation-example/"/>
-    <id>http://example.com/2021/02/06/java-fundation-example/</id>
-    <published>2021-02-06T13:46:36.000Z</published>
-    <updated>2021-02-06T14:01:40.920Z</updated>
+    <title>general_methods</title>
+    <link href="http://example.com/2021/02/11/general-methods/"/>
+    <id>http://example.com/2021/02/11/general-methods/</id>
+    <published>2021-02-11T09:58:46.000Z</published>
+    <updated>2021-02-15T14:54:18.814Z</updated>
     
     
     
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
     
     
   </entry>
@@ -48,6 +50,19 @@
     
     
     <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>java_fundation_example</title>
+    <link href="http://example.com/2021/02/06/java-fundation-example/"/>
+    <id>http://example.com/2021/02/06/java-fundation-example/</id>
+    <published>2021-02-06T13:46:36.000Z</published>
+    <updated>2021-02-06T14:01:40.920Z</updated>
+    
+    
+    
     
     
   </entry>
@@ -142,7 +157,7 @@
     <link href="http://example.com/2021/01/31/tree/"/>
     <id>http://example.com/2021/01/31/tree/</id>
     <published>2021-01-31T15:10:16.000Z</published>
-    <updated>2021-02-04T13:56:40.229Z</updated>
+    <updated>2021-02-15T14:54:18.934Z</updated>
     
     
       
