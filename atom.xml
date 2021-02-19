@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-02-18T16:46:21.634Z</updated>
+  <updated>2021-02-19T12:08:20.480Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>剑指offer</title>
+    <link href="http://example.com/2021/02/19/%E5%89%91%E6%8C%87offer/"/>
+    <id>http://example.com/2021/02/19/%E5%89%91%E6%8C%87offer/</id>
+    <published>2021-02-19T13:46:36.000Z</published>
+    <updated>2021-02-19T12:08:20.480Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;简单&quot;&gt;&lt;a href=&quot;#简单&quot; class=&quot;headerlink&quot; title=&quot;简单&quot;&gt;&lt;/a&gt;简单&lt;/h1&gt;&lt;h2 id=&quot;03-数组中重复的数字&quot;&gt;&lt;a href=&quot;#03-数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;03</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>sliding_window</title>
