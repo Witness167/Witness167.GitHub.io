@@ -173,6 +173,359 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/java-fundation-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E4%B8%AA%E7%89%B9%E5%BE%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/java-fundation-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E4%B8%AA%E7%89%B9%E5%BE%81/" class="post-title-link" itemprop="url">java_fundation_EIP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 21:46:34" itemprop="dateCreated datePublished" datetime="2021-02-06T21:46:34+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-07 19:52:53" itemprop="dateModified" datetime="2021-02-07T19:52:53+08:00">2021-02-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210207164003306.png" alt="image-20210207164003306"></p>
+<h1 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>封装是指把一个对象的状态信息（也就是属性）隐藏在对象内部，不允许外部对象直接访问对象的内部信息。但是可以提供一些可以被外界访问的方法来操作属性。就好像我们看不到挂在墙上的空调的内部的零件信息（也就是属性），但是可以通过遥控器（方法）来控制空调。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;<span class="comment">//id属性私有化</span></span><br><span class="line">    <span class="keyword">private</span> String name;<span class="comment">//name属性私有化</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取id的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置id的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取name的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置name的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h2><p>不同类型的对象，相互之间经常有一定数量的共同点。小明同学、小红同学、小李同学，都共享学生的特性（班级、学号等）。同时，每一个对象还定义了额外的特性使得他们与众不同。例如小明的数学比较好，小红的性格惹人喜爱；小李的力气比较大。继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性的继承父类。通过使用继承，可以快速的创建新的类，可以提高代码的重用，程序的可维护性，节省大量创建新类的时间，提高我们的开发效率。</p>
+<ol>
+<li>子类拥有父类对象所有的属性和方法，包括私有属性和私有方法，但是父类中的私有属性和方法子类无法访问，只是拥有。</li>
+<li>子类可以拥有自己属性和方法，即子类可以对父类进行扩展</li>
+<li>子类可以用自己的方式实现父类的方法</li>
+</ol>
+<h2 id="定义子类"><a href="#定义子类" class="headerlink" title="定义子类"></a>定义子类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Manager</span> <span class="keyword">extends</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> bonus;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBonus</span><span class="params">(<span class="keyword">double</span> bonus)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.bonus = bonus;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="覆盖方法"><a href="#覆盖方法" class="headerlink" title="覆盖方法"></a>覆盖方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Manager</span> <span class="keyword">extends</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> bonus;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> salary + bonus;<span class="comment">//不能直接访问超类私有域</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.getSalary() + bonus;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>super不是一个对象的引用，不能将super赋给另一个对象变量，他只是一个指示编译器调用超类方法的特殊关键字。</p>
+<p>在子类中可以增加域 方法 覆盖超类方法，但是不能删除继承的任何域和方法</p>
+<h2 id="子类构造器"><a href="#子类构造器" class="headerlink" title="子类构造器"></a>子类构造器</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Manager</span><span class="params">(String name, <span class="keyword">double</span> salary, <span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(name, salary, year, month, day);<span class="comment">//调用超类的构造函数</span></span><br><span class="line">    <span class="comment">//如果没有显式的调用，将会自动默认调用超类默认的构造器</span></span><br><span class="line">    bonus = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>this：</p>
+<ol>
+<li>引用隐式参数</li>
+<li>调用该类其他的构造器</li>
+</ol>
+<p>super：</p>
+<ol>
+<li>调用超类方法</li>
+<li>调用超类构造器</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Manager boss = <span class="keyword">new</span> Manager(<span class="string">&quot;carl&quot;</span>, <span class="number">8000</span>, <span class="number">1987</span>, <span class="number">12</span>, <span class="number">15</span>);</span><br><span class="line">boss.setBonus(<span class="number">5000</span>);</span><br><span class="line"></span><br><span class="line">Employee[] staff = <span class="keyword">new</span> Employee[<span class="number">3</span>];</span><br><span class="line">staff[<span class="number">0</span>] = bossl;</span><br><span class="line">staff[<span class="number">1</span>] = <span class="keyword">new</span> Employee(<span class="string">&quot;&quot;</span>, <span class="number">5000</span>, <span class="number">1989</span>, <span class="number">10</span>, <span class="number">1</span>);</span><br><span class="line">staff[<span class="number">2</span>] = <span class="keyword">new</span> Employee(<span class="string">&quot;&quot;</span>, <span class="number">1313</span>, <span class="number">1989</span>, <span class="number">10</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (Employee e : staff) &#123;</span><br><span class="line">    <span class="comment">//一个对象遍历e可以指示多种实际类型的现象称为多态(polymorphism)</span></span><br><span class="line">    <span class="comment">//在运行时能够自动的选择调用哪个方法的现象称为动态绑定</span></span><br><span class="line">    e.getName() + e.getSalary();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="理解方法调用"><a href="#理解方法调用" class="headerlink" title="理解方法调用"></a>理解方法调用</h2><p>假设要调用x.f(args)，隐式参数x声明为类c的一个对象</p>
+<ol>
+<li>编译器查看对象的声明类型和方法名。假设调用x.f(param)，且隐式参数x声明为C类的对象。需要注意的是：有可能存在多个名字为f，但是参数类型不一样的方法。例如，可能存在方法f(int)和f(string)。编译器将会一一列举所有c类中名为f的方法和其超类在访问属性为public的且名为f的方法。至此，编译器已获得所有可能被调用的候选方法</li>
+<li>接下来，编译器将查看调用方法时提供的参数类型。如果在所有名为f的方法中存在一个与提供的参数类型完全匹配。</li>
+</ol>
+<h1 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h1><h2 id="介绍-2"><a href="#介绍-2" class="headerlink" title="介绍"></a>介绍</h2><p>多态表示一个对象具有多种状态。具体表现为父类的引用指向子类的实例。</p>
+<ol>
+<li>对象类型和引用类型之间具有继承（类）/实现（接口）的关系</li>
+<li>引用类型变量发出的方法调用的到底是哪个类中的方法，必须在程序运行期间才能确定</li>
+<li>多态不能调用只在子类存在但是父类中不存在的方法</li>
+<li>如果子类重写了父类的方法，真正执行的是子类的方法，如果子类没有覆盖，执行的是父类的方法。</li>
+</ol>
+<p>在java中，对象变量是多态的。一个emploee对象既可以引用一个emploee类对象，也可以引用employee类的任何一个子类的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">boss.steBonus(<span class="number">5000</span>);</span><br><span class="line">staff[<span class="number">0</span>].setBonus(<span class="number">5000</span>);<span class="comment">//不能这样调用，编译器把satff【0】看成employee对象</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/04/picground/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/04/picground/" class="post-title-link" itemprop="url">picground</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-04 22:47:22 / Modified: 22:59:43" itemprop="dateCreated datePublished" datetime="2021-02-04T22:47:22+08:00">2021-02-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index"><span itemprop="name">other</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="fial-to-fatch"><a href="#fial-to-fatch" class="headerlink" title="fial to fatch"></a>fial to fatch</h1><p>当typora上传显示为fail to fatch时，修改picpro的server的端口为typora监听端口</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/04/java-fundation_enum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/04/java-fundation_enum/" class="post-title-link" itemprop="url">java_fundation_enum</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-04 22:24:38" itemprop="dateCreated datePublished" datetime="2021-02-04T22:24:38+08:00">2021-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-06 21:49:46" itemprop="dateModified" datetime="2021-02-06T21:49:46+08:00">2021-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="参数数量可变的方法"><a href="#参数数量可变的方法" class="headerlink" title="参数数量可变的方法"></a>参数数量可变的方法</h2><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210204222712626.png" alt="image-20210204222712626"></p>
+<p>上述两个虽然参数不一样，但是调用的是同一个方法。</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210204222751364.png" alt="image-20210204222751364"></p>
+<p>其中的省略号是java代码的一部分，表明这个方法可以接受任意数量的对象。</p>
+<p>printf()方法接受两个参数，一个是格式字符串，另一个是object[]数组，其中保存着所有的参数（如果调用者提供的是整形数组或者是其他类型的值，自动装箱功能将把他转换成对象）</p>
+<h1 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h1><p><code>这篇文章由 JavaGuide 翻译，公众号: JavaGuide,原文地址：https://www.baeldung.com/a-guide-to-java-enums 。</code></p>
+<h2 id="1-概览"><a href="#1-概览" class="headerlink" title="1 概览"></a>1 概览</h2><p>优势：</p>
+<ol>
+<li>相比于定义常量更具可读性</li>
+<li>预先记录可接受值的列表，避免传入无效值引起意外行为</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> shuang.kou.enumdemo.enumtest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaStatus</span> </span>&#123;</span><br><span class="line">    ORDERED,</span><br><span class="line">    READY, </span><br><span class="line">    DELIVERED; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-自定义枚举方法"><a href="#2-自定义枚举方法" class="headerlink" title="2 自定义枚举方法"></a>2 自定义枚举方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pizza</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> PizzaStatus status;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaStatus</span> </span>&#123;</span><br><span class="line">        ORDERED,</span><br><span class="line">        READY,</span><br><span class="line">        DELIVERED;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDeliverable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getStatus() == PizzaStatus.READY;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Methods that set and get the status variable.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-使用-比较枚举类型"><a href="#3-使用-比较枚举类型" class="headerlink" title="3 使用==比较枚举类型"></a>3 使用==比较枚举类型</h2><p>枚举类型确保jvm中仅存在一个常量实例，可以安全的使用==运算法比较两个变量。也可以提供编译时和运行时的安全性。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//运行时</span></span><br><span class="line"><span class="keyword">if</span>(testPz.getStatus().equals(Pizza.PizzaStatus.DELIVERED)); </span><br><span class="line"><span class="keyword">if</span>(testPz.getStatus() == Pizza.PizzaStatus.DELIVERED); </span><br><span class="line"><span class="comment">//运行时候的安全，当两个值均为null时，equals会返回nullpointorexception错误</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(testPz.getStatus().equals(TestColor.GREEN));</span><br><span class="line"><span class="keyword">if</span>(testPz.getStatus() == TestColor.GREEN);</span><br><span class="line"><span class="comment">//编译时安全，比较时，equals返回true，但是逻辑上是错的，使用==，编译器表示类型不兼容错误。</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-在switch语句中使用枚举类型"><a href="#4-在switch语句中使用枚举类型" class="headerlink" title="4 在switch语句中使用枚举类型"></a>4 在switch语句中使用枚举类型</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getDeliveryTimeInDays</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (status) &#123;</span><br><span class="line">        <span class="keyword">case</span> ORDERED:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">        <span class="keyword">case</span> READY:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">case</span> DELIVERED:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-枚举类型的属性，方法和构造函数"><a href="#5-枚举类型的属性，方法和构造函数" class="headerlink" title="5 枚举类型的属性，方法和构造函数"></a>5 枚举类型的属性，方法和构造函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pizza</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> PizzaStatus status;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaStatus</span> </span>&#123;</span><br><span class="line">        ORDERED (<span class="number">5</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOrdered</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        READY (<span class="number">2</span>)&#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isReady</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        DELIVERED (<span class="number">0</span>)&#123;</span><br><span class="line">            @Override #@override注解表示子类重写了父类的方法</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDelivered</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">int</span> timeToDelivery;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOrdered</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> <span class="keyword">false</span>;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isReady</span><span class="params">()</span> </span>&#123;<span class="keyword">return</span> <span class="keyword">false</span>;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDelivered</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="keyword">false</span>;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getTimeToDelivery</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> timeToDelivery;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        PizzaStatus (<span class="keyword">int</span> timeToDelivery) &#123;</span><br><span class="line">            <span class="keyword">this</span>.timeToDelivery = timeToDelivery;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDeliverable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.status.isReady();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printTimeToDeliver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Time to delivery is &quot;</span> + </span><br><span class="line">          <span class="keyword">this</span>.getStatus().getTimeToDelivery());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Methods that set and get the status variable.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenPizaOrder_whenReady_thenDeliverable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Pizza testPz = <span class="keyword">new</span> Pizza();</span><br><span class="line">    testPz.setStatus(Pizza.PizzaStatus.READY);</span><br><span class="line">    assertTrue(testPz.isDeliverable());</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="6-EnumSet-and-EnumMap"><a href="#6-EnumSet-and-EnumMap" class="headerlink" title="6 EnumSet and EnumMap"></a>6 EnumSet and EnumMap</h2><h3 id="6-1-Enumset"><a href="#6-1-Enumset" class="headerlink" title="6.1 Enumset"></a>6.1 Enumset</h3><p>这是一种专门为枚举类型设计的set类型</p>
+<p>与hashset相比，由于使用了内部位向量表示，是特定enum常量级的非常有效且紧凑的表示形式。</p>
+<p>提供了类型安全的替代方法，以替代传统的基于int的位标志，使编写更易读和易于维护</p>
+<p>Enumset 是抽象类，其有两个实现：regularenumset、jumboenumset，选择哪一个取决于实例化时枚举中常量的数量。</p>
+<p>在很多场景中的枚举常量集合操作，如（取子集，增加，删除，containsall和removeall）使用enumset非常合适，如果需要迭代所有可能的常量则使用enum.values（）。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pizza</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> EnumSet&lt;PizzaStatus&gt; undeliveredPizzaStatuses =</span><br><span class="line">      EnumSet.of(PizzaStatus.ORDERED, PizzaStatus.READY);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> PizzaStatus status;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaStatus</span> </span>&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isDeliverable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.status.isReady();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printTimeToDeliver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Time to delivery is &quot;</span> + </span><br><span class="line">          <span class="keyword">this</span>.getStatus().getTimeToDelivery() + <span class="string">&quot; days&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Pizza&gt; <span class="title">getAllUndeliveredPizzas</span><span class="params">(List&lt;Pizza&gt; input)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> input.stream().filter(</span><br><span class="line">          (s) -&gt; undeliveredPizzaStatuses.contains(s.getStatus()))</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliver</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (isDeliverable()) &#123; </span><br><span class="line">            PizzaDeliverySystemConfiguration.getInstance().getDeliveryStrategy()</span><br><span class="line">              .deliver(<span class="keyword">this</span>); </span><br><span class="line">            <span class="keyword">this</span>.setStatus(PizzaStatus.DELIVERED); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Methods that set and get the status variable.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenPizaOrders_whenRetrievingUnDeliveredPzs_thenCorrectlyRetrieved</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Pizza&gt; pzList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Pizza pz1 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz1.setStatus(Pizza.PizzaStatus.DELIVERED);</span><br><span class="line"></span><br><span class="line">    Pizza pz2 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz2.setStatus(Pizza.PizzaStatus.ORDERED);</span><br><span class="line"></span><br><span class="line">    Pizza pz3 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz3.setStatus(Pizza.PizzaStatus.ORDERED);</span><br><span class="line"></span><br><span class="line">    Pizza pz4 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz4.setStatus(Pizza.PizzaStatus.READY);</span><br><span class="line"></span><br><span class="line">    pzList.add(pz1);</span><br><span class="line">    pzList.add(pz2);</span><br><span class="line">    pzList.add(pz3);</span><br><span class="line">    pzList.add(pz4);</span><br><span class="line"></span><br><span class="line">    List&lt;Pizza&gt; undeliveredPzs = Pizza.getAllUndeliveredPizzas(pzList); </span><br><span class="line">    assertTrue(undeliveredPzs.size() == <span class="number">3</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="6-2-EnumMap"><a href="#6-2-EnumMap" class="headerlink" title="6.2 EnumMap"></a>6.2 EnumMap</h3><p>enummap是一个专门化的映射实现，用于将枚举常量用作健。与对应的hashmap相比，他是一个高效紧凑的实现，并且在内部表示为一个数组：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">EnumMap&lt;Pizza.PizzaStatus, Pizza&gt; map;</span><br><span class="line"></span><br><span class="line">Iterator&lt;Pizza&gt; iterator = pizzaList.iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    Pizza pz = iterator.next();</span><br><span class="line">    PizzaStatus status = pz.getStatus();</span><br><span class="line">    <span class="keyword">if</span> (pzByStatus.containsKey(status)) &#123;</span><br><span class="line">      pzByStatus.get(status).add(pz);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      List&lt;Pizza&gt; newPzList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">      newPzList.add(pz);</span><br><span class="line">      pzByStatus.put(status, newPzList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenPizaOrders_whenGroupByStatusCalled_thenCorrectlyGrouped</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    List&lt;Pizza&gt; pzList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    Pizza pz1 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz1.setStatus(Pizza.PizzaStatus.DELIVERED);</span><br><span class="line"></span><br><span class="line">    Pizza pz2 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz2.setStatus(Pizza.PizzaStatus.ORDERED);</span><br><span class="line"></span><br><span class="line">    Pizza pz3 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz3.setStatus(Pizza.PizzaStatus.ORDERED);</span><br><span class="line"></span><br><span class="line">    Pizza pz4 = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz4.setStatus(Pizza.PizzaStatus.READY);</span><br><span class="line"></span><br><span class="line">    pzList.add(pz1);</span><br><span class="line">    pzList.add(pz2);</span><br><span class="line">    pzList.add(pz3);</span><br><span class="line">    pzList.add(pz4);</span><br><span class="line"></span><br><span class="line">    EnumMap&lt;Pizza.PizzaStatus,List&lt;Pizza&gt;&gt; map = Pizza.groupPizzaByStatus(pzList);</span><br><span class="line">    assertTrue(map.get(Pizza.PizzaStatus.DELIVERED).size() == <span class="number">1</span>);</span><br><span class="line">    assertTrue(map.get(Pizza.PizzaStatus.ORDERED).size() == <span class="number">2</span>);</span><br><span class="line">    assertTrue(map.get(Pizza.PizzaStatus.READY).size() == <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="7-通过枚举实现一些设计模式"><a href="#7-通过枚举实现一些设计模式" class="headerlink" title="7 通过枚举实现一些设计模式"></a>7 通过枚举实现一些设计模式</h2><h3 id="7-1-单例模式"><a href="#7-1-单例模式" class="headerlink" title="7.1 单例模式"></a>7.1 单例模式</h3><p>单例模式(singleton pattern) 属于创建型模式，提供了一种创建对象的最佳方式。</p>
+<p>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
+<p>注意：</p>
+<ol>
+<li>单例类只能有一个实例</li>
+<li>单例类必须自己创建自己的唯一实例</li>
+<li>单例类必须给所有其他对象提供这一实例</li>
+</ol>
+<h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><strong>意图</strong>：保证一个类仅有一个实例，并提供一个访问他的全局访问点。</p>
+<p><strong>主要解决</strong>：一个全局使用的类频繁的创建和销毁</p>
+<p><strong>何时使用</strong>：当你想控制实例数日，节约系统资源的时候</p>
+<p><strong>如何解决</strong>：判断系统是否已经有这个实例，如果有则返回，没有就创建</p>
+<p><strong>关键代码</strong>：构造函数是私有的</p>
+<p><strong>应用实例</strong>：</p>
+<ol>
+<li>一个班级只有一个班主任</li>
+<li>windows是多进程多线程的，在操作一个文件时，所有文件的处理必须通过唯一的实例来进行</li>
+</ol>
+<p><strong>优点</strong>：</p>
+<ol>
+<li>在内存中只有一个实例，减少内存开销</li>
+<li>避免对资源的多重占用</li>
+</ol>
+<p><strong>缺点</strong>：没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</p>
+<p><strong>使用场景</strong>：</p>
+<ol>
+<li>要求生产唯一序列号</li>
+<li>web中的计数器，不用每次刷新都在数据库里加一个词，用单例先缓存起来</li>
+<li>创建的一个对象需要消耗的资源过多</li>
+</ol>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210206195202942.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个singleton类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleObject</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">//创建 SingleObject 的一个对象</span></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> SingleObject instance = <span class="keyword">new</span> SingleObject();</span><br><span class="line"> </span><br><span class="line">   <span class="comment">//让构造函数为 private，这样该类就不会被实例化</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="title">SingleObject</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"> </span><br><span class="line">   <span class="comment">//获取唯一可用的对象</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SingleObject <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> instance;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//从singleton类中获取唯一的对象</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonPatternDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">      <span class="comment">//不合法的构造函数</span></span><br><span class="line">      <span class="comment">//编译时错误：构造函数 SingleObject() 是不可见的</span></span><br><span class="line">      <span class="comment">//SingleObject object = new SingleObject();</span></span><br><span class="line"> </span><br><span class="line">      <span class="comment">//获取唯一可用的对象</span></span><br><span class="line">      SingleObject object = SingleObject.getInstance();</span><br><span class="line"> </span><br><span class="line">      <span class="comment">//显示消息</span></span><br><span class="line">      object.showMessage();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="枚举实现单例模式"><a href="#枚举实现单例模式" class="headerlink" title="枚举实现单例模式"></a>枚举实现单例模式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">Singleton</span> </span>&#123;  </span><br><span class="line">    INSTANCE;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">whateverMethod</span><span class="params">()</span> </span>&#123;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaDeliverySystemConfiguration</span> </span>&#123;</span><br><span class="line">    INSTANCE;</span><br><span class="line">    PizzaDeliverySystemConfiguration() &#123;</span><br><span class="line">        <span class="comment">// Initialization configuration which involves</span></span><br><span class="line">        <span class="comment">// overriding defaults like delivery strategy</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> PizzaDeliveryStrategy deliveryStrategy = PizzaDeliveryStrategy.NORMAL;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PizzaDeliverySystemConfiguration <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> INSTANCE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> PizzaDeliveryStrategy <span class="title">getDeliveryStrategy</span><span class="params">()</span> </span>&#123;s</span><br><span class="line">        <span class="keyword">return</span> deliveryStrategy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//通过 PizzaDeliverySystemConfiguration.getInstance() 获取的就是单例的 PizzaDeliverySystemConfiguration</span></span><br></pre></td></tr></table></figure>
+<h3 id="7-2-策略模式"><a href="#7-2-策略模式" class="headerlink" title="7.2 策略模式"></a>7.2 策略模式</h3><p>在策略模式(strategy pattern)中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。</p>
+<p>在策略模式中，我们创建表示各种策略的对象和一个行为随着策略对象而改变的context对象，策略对象改变context对象的执行算法。</p>
+<h4 id="介绍-1"><a href="#介绍-1" class="headerlink" title="介绍"></a>介绍</h4><p><strong>意图</strong>：定义一系列的算法，把他们一个个封装起来，并且使他们可相互替换。</p>
+<p><strong>主要解决</strong>：在有多种算法相似的情况下，使用if…else…带来的复杂和难以维护</p>
+<p><strong>何时使用</strong>：一个系统有许多许多类，而区分他们的只是他们直接的行为</p>
+<p><strong>如何解决</strong>：将这些算法封装成一个一个的类，任意的替换</p>
+<p><strong>关键代码</strong>：实现同一个接口</p>
+<p><strong>应用实例</strong>：</p>
+<ol>
+<li>诸葛亮的锦囊妙计，每一个锦囊就是一个策略</li>
+<li>旅行的出行方式，选择骑自行车 汽车，每一种旅行方式都是一个策略</li>
+</ol>
+<p><strong>优点</strong>：</p>
+<ol>
+<li>算法可以自由切换</li>
+<li>避免使用多重条件判断</li>
+<li>扩展性良好</li>
+</ol>
+<p><strong>缺点</strong>：</p>
+<ol>
+<li>策略类增多</li>
+<li>所有策略类都需要对外暴露</li>
+</ol>
+<p><strong>使用场景</strong>：</p>
+<ol>
+<li>如果一个系统里面有许多类，如果区别仅在于行为，那么策略模式可以动态的让一个对象在许多行为中选择一个行为</li>
+<li>一个系统需要动态的几种算法选择一种</li>
+<li>如果一个对象有很多行为，如果不用恰当的模式，这种行为就只好使用多重的条件选择语句来实现</li>
+<li>如果一个系统的策略多余4个，需要考虑使用混合模式，解决策略类膨胀的问题</li>
+</ol>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210206212308458.png" alt="image-20210206212308458"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个借口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Strategy</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建实现接口的实体类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationAdd</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1 + num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationSubtract</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1 - num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OperationMultiply</span> <span class="keyword">implements</span> <span class="title">Strategy</span></span>&#123;</span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doOperation</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> num1 * num2;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建context类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Strategy strategy;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Context</span><span class="params">(Strategy strategy)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.strategy = strategy;</span><br><span class="line">   &#125;</span><br><span class="line"> </span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">executeStrategy</span><span class="params">(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> strategy.doOperation(num1, num2);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StrategyPatternDemo</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Context context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationAdd());    </span><br><span class="line">      System.out.println(<span class="string">&quot;10 + 5 = &quot;</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</span><br><span class="line"> </span><br><span class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationSubtract());      </span><br><span class="line">      System.out.println(<span class="string">&quot;10 - 5 = &quot;</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</span><br><span class="line"> </span><br><span class="line">      context = <span class="keyword">new</span> Context(<span class="keyword">new</span> OperationMultiply());    </span><br><span class="line">      System.out.println(<span class="string">&quot;10 * 5 = &quot;</span> + context.executeStrategy(<span class="number">10</span>, <span class="number">5</span>));</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="枚举的应用"><a href="#枚举的应用" class="headerlink" title="枚举的应用"></a>枚举的应用</h4><p>通常，策略模式由不同类实现同一个接口来实现的。这就意味着添加新策略意味着添加新的实现类。使用枚举，添加新的实现意味着只定义具有某个实现的另一个实例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PizzaDeliveryStrategy</span> </span>&#123;</span><br><span class="line">    EXPRESS &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliver</span><span class="params">(Pizza pz)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Pizza will be delivered in express mode&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    NORMAL &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliver</span><span class="params">(Pizza pz)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;Pizza will be delivered in normal mode&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">deliver</span><span class="params">(Pizza pz)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用给枚举类增加一个</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isDeliverable()) &#123;</span><br><span class="line">        PizzaDeliverySystemConfiguration.getInstance().getDeliveryStrategy()</span><br><span class="line">          .deliver(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">this</span>.setStatus(PizzaStatus.DELIVERED);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">givenPizaOrder_whenDelivered_thenPizzaGetsDeliveredAndStatusChanges</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Pizza pz = <span class="keyword">new</span> Pizza();</span><br><span class="line">    pz.setStatus(Pizza.PizzaStatus.READY);</span><br><span class="line">    pz.deliver();</span><br><span class="line">    assertTrue(pz.getStatus() == Pizza.PizzaStatus.DELIVERED);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-Java-8-与枚举"><a href="#8-Java-8-与枚举" class="headerlink" title="8 Java 8 与枚举"></a>8 Java 8 与枚举</h2><p>使用lambda 和stream重写pizza类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;Pizza&gt; <span class="title">getAllUndeliveredPizzas</span><span class="params">(List&lt;Pizza&gt; input)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> input.stream().filter(</span><br><span class="line">      (s) -&gt; !deliveredPizzaStatuses.contains(s.getStatus()))</span><br><span class="line">        .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> EnumMap&lt;PizzaStatus, List&lt;Pizza&gt;&gt; </span><br><span class="line">  groupPizzaByStatus(List&lt;Pizza&gt; pzList) &#123;</span><br><span class="line">    EnumMap&lt;PizzaStatus, List&lt;Pizza&gt;&gt; map = pzList.stream().collect(</span><br><span class="line">      Collectors.groupingBy(Pizza::getStatus,</span><br><span class="line">      () -&gt; <span class="keyword">new</span> EnumMap&lt;&gt;(PizzaStatus.class), Collectors.toList()));</span><br><span class="line">    <span class="keyword">return</span> map;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="9-补充"><a href="#9-补充" class="headerlink" title="9 补充"></a>9 补充</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//举一个调用短信验证码时候的例子</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">enum</span> <span class="title">PinType</span> </span>&#123;</span><br><span class="line">	<span class="comment">//这几个是已经建立好的实例</span></span><br><span class="line">    REGISTER(<span class="number">100000</span>, <span class="string">&quot;注册使用&quot;</span>),</span><br><span class="line">    FORGET_PASSWORD(<span class="number">100001</span>, <span class="string">&quot;忘记密码使用&quot;</span>),</span><br><span class="line">    UPDATE_PHONE_NUMBER(<span class="number">100002</span>, <span class="string">&quot;更新手机号码使用&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> code;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String message;</span><br><span class="line"></span><br><span class="line">    PinType(<span class="keyword">int</span> code, String message) &#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">        <span class="keyword">this</span>.message = message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;PinType&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;code=&quot;</span> + code +</span><br><span class="line">                <span class="string">&quot;, message=&#x27;&quot;</span> + message + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/02/dynamic-programming/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -702,14 +1055,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
