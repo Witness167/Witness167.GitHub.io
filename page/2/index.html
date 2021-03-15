@@ -173,143 +173,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="witness">
-      <meta itemprop="description" content="learn, love, sport, life">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="witness daily">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="post-title-link" itemprop="url">进程间通信</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-06 21:46:36" itemprop="dateCreated datePublished" datetime="2021-02-06T21:46:36+08:00">2021-02-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-25 15:42:33" itemprop="dateModified" datetime="2021-02-25T15:42:33+08:00">2021-02-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/operating-system/" itemprop="url" rel="index"><span itemprop="name">operating_system</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="post-meta-item leancloud_visitors" data-flag-title="进程间通信" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="进程间通信（IPC-interprocess-communication）"><a href="#进程间通信（IPC-interprocess-communication）" class="headerlink" title="进程间通信（IPC, interprocess communication）"></a>进程间通信（IPC, interprocess communication）</h1><h2 id="原著"><a href="#原著" class="headerlink" title="原著"></a>原著</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c1015f5ffa74">https://www.jianshu.com/p/c1015f5ffa74</a></p>
-<h2 id="进程间通信的概念"><a href="#进程间通信的概念" class="headerlink" title="进程间通信的概念"></a>进程间通信的概念</h2><p>每个进程各自有不同的用户地址空间，任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核，在内核中开辟一块缓冲区，进程1把数据从用户空间拷到内核缓冲区，进程2再从内核缓冲区把数据读走，内核提供的这种机制成为进程间通信。</p>
-<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210225144005911.png" alt="image-20210225144005911"></p>
-<h2 id="进程间通信的7种方式"><a href="#进程间通信的7种方式" class="headerlink" title="进程间通信的7种方式"></a>进程间通信的7种方式</h2><h3 id="第一类-传统的unix通信机制"><a href="#第一类-传统的unix通信机制" class="headerlink" title="第一类 传统的unix通信机制"></a>第一类 传统的unix通信机制</h3><p><strong>1 管道/匿名管道（pipe）</strong></p>
-<ul>
-<li>管道是半双工的，数据只能向一个方向流动，需要双方通信时，需要建立起两个管道</li>
-<li>只能用于父子进程或者兄弟进程之间</li>
-<li>单独构成一种独立的文件系统：管道对于管道两端的进程而言，就是一个文件，但他不是普通的文件，他不属于某种文件系统，单独构成一种文件系统，并且只存在于内存中</li>
-<li>数据的读写：一个进程向管道中写的内容被管道另一端的进程读出。写入的内容每次都添加在管道缓冲区的末尾，并且每次都是从缓冲区的头部读出数据。</li>
-</ul>
-<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210225144901689.png" alt="image-20210225144901689"></p>
-<p><strong>管道的实质</strong></p>
-<p>管道的实质是一个内核缓冲区，进程以先进先出的方式从缓冲区存取数据，管道一端的进程顺序的将数据写入缓冲区，另一端的进程则顺序的读出数据。</p>
-<p>该缓冲区可以看作是一个循环队列，读和写的位置是自动增长的，不能随意改变，一个数据只能被读一次，读出来以后在缓冲区就不复存在了。</p>
-<p>当缓冲区读空或写满时，有一定的规则控制相应的读进程或者写进程进入等待队列，当空的缓冲区有新数据写入或者满的缓冲区有数据读出来时，就唤醒等待队列中的进程继续读写。</p>
-<p><strong>管道的局限</strong></p>
-<p>管道的主要局限体现在他的特点上</p>
-<ul>
-<li>只支持单项数据流</li>
-<li>只能用于具有亲缘关系的进程之间</li>
-<li>没有名字</li>
-<li>管道的缓冲区有限，管道只存在于内存中，在管道创建时，为缓冲区分配一个页面大小</li>
-<li>管道所传送的是无格式字节流，这要求管道的读写双方必须约定好数据的格式</li>
-</ul>
-<ol start="2">
-<li><strong>有名管道</strong></li>
-</ol>
-<p>匿名管道由于没有名字，只能用于亲缘关系的进程间通信，为了克服这个缺点，提出了有名管道 FIFO</p>
-<p>有名管道不同于匿名管道之处在于他提供了一个路径名与之关联，以有名管道的文件形式存在于文件系统中。这样，即使与有名管道的创建进程不存在 亲缘关系的进程，只要可以访问该路径，就可以彼此通过有名管道相互通信。有名管道严格遵循先进先出。读总是从开头开始，写总是把数据添加到末尾。不支持文件定位等操作。有名管道的名存在于文件系统中，内容存放在内存中。</p>
-<blockquote>
-<p>匿名管道和有名管道总结</p>
-<ul>
-<li><p>管道是特殊类型的文件，在满足先入先出的原则下可以进行读写，但不能进行定位读写</p>
-</li>
-<li><p>匿名管道是单向的，只能是亲缘关系之间的进程间通信，有名管道可以实现本机任意两个进程通信。</p>
-</li>
-<li><p>无名管道阻塞问题：无名管道无需显示打开，创建时直接返回文件描述符，在读写时需要确定对方的存在，否则将退出。如果当前进程向无名管道的一端写数据，必须确定另一端有某一进程。如果写入无名管道的数据超过其最大值，写操作将阻塞，如果管道中没有数据，读操作将阻塞，如果管道发现另一端断开，将自动退出。</p>
-</li>
-<li><p>有名管道阻塞：有名管道在打开时需要确定对方的存在，否则将阻塞。即以读方式打开某管道，在此之前必须一个进程以写方式打开管道，否则阻塞。此外，可以以读写模式打开有名管道，即当前进程读 当前进程写，不会阻塞。</p>
-</li>
-</ul>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-26833883-id-3227144.html">http://blog.chinaunix.net/uid-26833883-id-3227144.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/java-fundation-reflection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -431,6 +294,281 @@
 <h2 id="使用反射编写泛型数组代码"><a href="#使用反射编写泛型数组代码" class="headerlink" title="使用反射编写泛型数组代码"></a>使用反射编写泛型数组代码</h2><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210207155029242.png" alt="image-20210207155029242"></p>
 <h2 id="调用任意方法"><a href="#调用任意方法" class="headerlink" title="调用任意方法"></a>调用任意方法</h2><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210207155703938.png" alt="image-20210207155703938"></p>
 <p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210207155716561.png" alt="image-20210207155716561"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/javaguide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/javaguide/" class="post-title-link" itemprop="url">from_javaguide</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 21:46:36" itemprop="dateCreated datePublished" datetime="2021-02-06T21:46:36+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-15 15:10:36" itemprop="dateModified" datetime="2021-03-15T15:10:36+08:00">2021-03-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/operating-system/" itemprop="url" rel="index"><span itemprop="name">operating_system</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/06/javaguide/" class="post-meta-item leancloud_visitors" data-flag-title="from_javaguide" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/02/06/javaguide/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/06/javaguide/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="javaguide"><a href="#javaguide" class="headerlink" title="javaguide"></a>javaguide</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本文纯属抄袭，原著地址：<a target="_blank" rel="noopener" href="https://snailclimb.gitee.io/javaguide/#/docs/operating-system/basis">https://snailclimb.gitee.io/javaguide/#/docs/operating-system/basis</a></p>
+<h2 id="操作系统基础"><a href="#操作系统基础" class="headerlink" title="操作系统基础"></a>操作系统基础</h2><p>操作系统中的很多算法很经典，也是日常开发工作中使用的。例如开发系统使用的缓存(redis)和操作系统的高速缓存就很像。CPU中的高速缓存有很多种，大部分都是为了解决CPU处理速度和内存处理速度不对等的问题。也可以把内存看作外存的高速缓存。同样的，redis缓存就是为了解决程序处理速度和访问常规关系型数据库速度不对等的问题。</p>
+<p>高速缓存一般会按照局部性原理（2-8原则）根据相应的淘汰算法保证缓存中的数据是经常被访问的。redis缓存中很多淘汰算法也和操作系统中的类似。</p>
+<h3 id="什么是操作系统"><a href="#什么是操作系统" class="headerlink" title="什么是操作系统"></a>什么是操作系统</h3><ol>
+<li>是管理计算机硬件与软件资源的程序</li>
+<li>本质上是一个运行在计算机上的软件程序。运行在电脑上的所有应用程序都通过操作系统来调研系统内存以及磁盘等硬件</li>
+<li>屏蔽了硬件层的复杂性</li>
+<li>内核是核心部分，负责系统的内存管理，硬件设施管理，文件系统管理以及应用程序的管理。连接了应用程序和硬件</li>
+</ol>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210224224622433.png" alt="image-20210224224622433"></p>
+<h3 id="什么是系统调用"><a href="#什么是系统调用" class="headerlink" title="什么是系统调用"></a>什么是系统调用</h3><p>根据进程访问资源的特点，可以把进程在系统上的运行分为两个级别：</p>
+<ol>
+<li>用户态：用户态运行的进程可以直接读取用户程序的数据</li>
+<li>系统态（kernel mode）：可以简单的理解系统态运行的进程或程序几乎可以访问计算机的任何资源，不受限制</li>
+</ol>
+<p>我们运行的程序基本都是运行在用户态，如果要调用操作系统提供的系统态级别的子功能，就需要系统调用</p>
+<p>凡是与系统态级别的资源有关的操作（如文件管理，进程控制，内存管理等），都必须通过系统调用方法向操作系统提出服务请求，并由操作系统代为完成。</p>
+<p>这些系统调用按照功能大致可以分为如下几类：</p>
+<ol>
+<li>设备管理。完成设备的请求与释放 以及设备启动等功能</li>
+<li>文件管理。完成文件的读写创建及删除等功能</li>
+<li>进程控制。完成进程的创建 撤销 阻塞及唤醒等功能</li>
+<li>进程通信。完成进程之间的消息传递或信号传递等功能</li>
+<li>内存管理。完成内存的分配 回收以及获取作业占用内存区大小以及地址等功能</li>
+</ol>
+<h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210224230032570.png" alt="image-20210224230032570"></p>
+<p>一个进程中有多个线程，多个线程共享进程的堆和方法区资源，但是每个线程有自己的程序计数器，虚拟机栈和本地方法栈。</p>
+<p><strong>总结：</strong>线程是进程划分成的更小的运行单位，一个进程在其执行的过程中可以产生多个线程。线程和进程最大的不同在于基本上各进程是独立的，而线程不一定。因为同一个进程的线程极有可能会相互影响。线程执行开销小，但是不利于资源的管理和保护。进程相反。</p>
+<h3 id="进程有几种状态"><a href="#进程有几种状态" class="headerlink" title="进程有几种状态"></a>进程有几种状态</h3><p>一般把进程大致分为5种状态。</p>
+<ol>
+<li>创建状态（new）进程正在被创建，尚未到就绪状态</li>
+<li>就绪状态（ready）进程已处于准备运行状态，即进程获得了除处理器之外的一切所需资源，一旦得到处理器资源（处理器分配的时间片）即可运行</li>
+<li>运行状态（running）进程正在处理器上运行（单核CPU下任意时刻只能一个进程处于运行状态）</li>
+<li>阻塞状态（waiting）又称为等待状态，进程正在等待某一事件而暂停运行等待某资源</li>
+<li>结束状态（terminated）进程正在从系统中消失，可能是进程正常结束或者其他原因中断退出运行</li>
+</ol>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210225143316578.png" alt="image-20210225143316578"></p>
+<h3 id="进程间的通信方式"><a href="#进程间的通信方式" class="headerlink" title="进程间的通信方式"></a>进程间的通信方式</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="post-title-link" itemprop="url">进程间通信</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-06 21:46:36" itemprop="dateCreated datePublished" datetime="2021-02-06T21:46:36+08:00">2021-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-15 15:10:36" itemprop="dateModified" datetime="2021-03-15T15:10:36+08:00">2021-03-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/operating-system/" itemprop="url" rel="index"><span itemprop="name">operating_system</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" class="post-meta-item leancloud_visitors" data-flag-title="进程间通信" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="进程间通信（IPC-interprocess-communication）"><a href="#进程间通信（IPC-interprocess-communication）" class="headerlink" title="进程间通信（IPC, interprocess communication）"></a>进程间通信（IPC, interprocess communication）</h1><h2 id="原著"><a href="#原著" class="headerlink" title="原著"></a>原著</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c1015f5ffa74">https://www.jianshu.com/p/c1015f5ffa74</a></p>
+<h2 id="进程间通信的概念"><a href="#进程间通信的概念" class="headerlink" title="进程间通信的概念"></a>进程间通信的概念</h2><p>每个进程各自有不同的用户地址空间，任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核，在内核中开辟一块缓冲区，进程1把数据从用户空间拷到内核缓冲区，进程2再从内核缓冲区把数据读走，内核提供的这种机制成为进程间通信。</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210225144005911.png" alt="image-20210225144005911"></p>
+<h2 id="进程间通信的7种方式"><a href="#进程间通信的7种方式" class="headerlink" title="进程间通信的7种方式"></a>进程间通信的7种方式</h2><h3 id="第一类-传统的unix通信机制"><a href="#第一类-传统的unix通信机制" class="headerlink" title="第一类 传统的unix通信机制"></a>第一类 传统的unix通信机制</h3><p><strong>1 管道/匿名管道（pipe）</strong></p>
+<ul>
+<li>管道是半双工的，数据只能向一个方向流动，需要双方通信时，需要建立起两个管道</li>
+<li>只能用于父子进程或者兄弟进程之间</li>
+<li>单独构成一种独立的文件系统：管道对于管道两端的进程而言，就是一个文件，但他不是普通的文件，他不属于某种文件系统，单独构成一种文件系统，并且只存在于内存中</li>
+<li>数据的读写：一个进程向管道中写的内容被管道另一端的进程读出。写入的内容每次都添加在管道缓冲区的末尾，并且每次都是从缓冲区的头部读出数据。</li>
+</ul>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210225144901689.png" alt="image-20210225144901689"></p>
+<p><strong>管道的实质</strong></p>
+<p>管道的实质是一个内核缓冲区，进程以先进先出的方式从缓冲区存取数据，管道一端的进程顺序的将数据写入缓冲区，另一端的进程则顺序的读出数据。</p>
+<p>该缓冲区可以看作是一个循环队列，读和写的位置是自动增长的，不能随意改变，一个数据只能被读一次，读出来以后在缓冲区就不复存在了。</p>
+<p>当缓冲区读空或写满时，有一定的规则控制相应的读进程或者写进程进入等待队列，当空的缓冲区有新数据写入或者满的缓冲区有数据读出来时，就唤醒等待队列中的进程继续读写。</p>
+<p><strong>管道的局限</strong></p>
+<p>管道的主要局限体现在他的特点上</p>
+<ul>
+<li>只支持单项数据流</li>
+<li>只能用于具有亲缘关系的进程之间</li>
+<li>没有名字</li>
+<li>管道的缓冲区有限，管道只存在于内存中，在管道创建时，为缓冲区分配一个页面大小</li>
+<li>管道所传送的是无格式字节流，这要求管道的读写双方必须约定好数据的格式</li>
+</ul>
+<ol start="2">
+<li><strong>有名管道</strong></li>
+</ol>
+<p>匿名管道由于没有名字，只能用于亲缘关系的进程间通信，为了克服这个缺点，提出了有名管道 FIFO</p>
+<p>有名管道不同于匿名管道之处在于他提供了一个路径名与之关联，以有名管道的文件形式存在于文件系统中。这样，即使与有名管道的创建进程不存在 亲缘关系的进程，只要可以访问该路径，就可以彼此通过有名管道相互通信。有名管道严格遵循先进先出。读总是从开头开始，写总是把数据添加到末尾。不支持文件定位等操作。有名管道的名存在于文件系统中，内容存放在内存中。</p>
+<blockquote>
+<p>匿名管道和有名管道总结</p>
+<ul>
+<li><p>管道是特殊类型的文件，在满足先入先出的原则下可以进行读写，但不能进行定位读写</p>
+</li>
+<li><p>匿名管道是单向的，只能是亲缘关系之间的进程间通信，有名管道可以实现本机任意两个进程通信。</p>
+</li>
+<li><p>无名管道阻塞问题：无名管道无需显示打开，创建时直接返回文件描述符，在读写时需要确定对方的存在，否则将退出。如果当前进程向无名管道的一端写数据，必须确定另一端有某一进程。如果写入无名管道的数据超过其最大值，写操作将阻塞，如果管道中没有数据，读操作将阻塞，如果管道发现另一端断开，将自动退出。</p>
+</li>
+<li><p>有名管道阻塞：有名管道在打开时需要确定对方的存在，否则将阻塞。即以读方式打开某管道，在此之前必须一个进程以写方式打开管道，否则阻塞。此外，可以以读写模式打开有名管道，即当前进程读 当前进程写，不会阻塞。</p>
+</li>
+</ul>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-26833883-id-3227144.html">http://blog.chinaunix.net/uid-26833883-id-3227144.html</a></p>
+<ol start="3">
+<li>信号<ul>
+<li>信号是linux系统中用于进程间互相通信或操作的一种机制。信号可以在任何时候发给某一个进程，而无需知道该进程的状态。</li>
+<li></li>
+</ul>
+</li>
+</ol>
 
       
     </div>
@@ -1178,106 +1316,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/31/latex-%E7%BB%98%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="witness">
-      <meta itemprop="description" content="learn, love, sport, life">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="witness daily">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/" class="post-title-link" itemprop="url">图片和表格</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-31 15:53:35" itemprop="dateCreated datePublished" datetime="2021-01-31T15:53:35+08:00">2021-01-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-03-02 09:52:42" itemprop="dateModified" datetime="2021-03-02T09:52:42+08:00">2021-03-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/latex/" itemprop="url" rel="index"><span itemprop="name">latex</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/" class="post-meta-item leancloud_visitors" data-flag-title="图片和表格" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;fig:example&#125;</span><br><span class="line">		<span class="keyword">\begin</span>&#123;subfigure&#125;&#123;.2<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">			<span class="keyword">\centering</span></span><br><span class="line">			<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;000000184951<span class="built_in">_</span>ori.jpg&#125;</span><br><span class="line">		<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">		<span class="keyword">\begin</span>&#123;subfigure&#125;&#123;.8<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">			<span class="keyword">\centering</span></span><br><span class="line">			<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;000000184951<span class="built_in">_</span>att<span class="built_in">_</span>text.pdf&#125;</span><br><span class="line">		<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;Visualization of the learned attention maps and unbalanced weights&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
-
-
-<p>并排插入两张图片</p>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p><a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/">https://www.tablesgenerator.com/</a></p>
-<p>输入数据自动生成latex语言</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/31/latex-%E5%85%AC%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1374,6 +1412,111 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/31/latex-%E7%BB%98%E5%9B%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/" class="post-title-link" itemprop="url">图片和表格</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-31 15:53:35" itemprop="dateCreated datePublished" datetime="2021-01-31T15:53:35+08:00">2021-01-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-15 15:10:19" itemprop="dateModified" datetime="2021-03-15T15:10:19+08:00">2021-03-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/latex/" itemprop="url" rel="index"><span itemprop="name">latex</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/" class="post-meta-item leancloud_visitors" data-flag-title="图片和表格" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/31/latex-%E7%BB%98%E5%9B%BE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h1><h2 id="并排插入两张图片"><a href="#并排插入两张图片" class="headerlink" title="并排插入两张图片"></a>并排插入两张图片</h2><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;</span><br><span class="line">		<span class="keyword">\label</span>&#123;fig:example&#125;</span><br><span class="line">		<span class="keyword">\begin</span>&#123;subfigure&#125;&#123;.2<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">			<span class="keyword">\centering</span></span><br><span class="line">			<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;000000184951<span class="built_in">_</span>ori.jpg&#125;</span><br><span class="line">		<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">		<span class="keyword">\begin</span>&#123;subfigure&#125;&#123;.8<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">			<span class="keyword">\centering</span></span><br><span class="line">			<span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;000000184951<span class="built_in">_</span>att<span class="built_in">_</span>text.pdf&#125;</span><br><span class="line">		<span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">	<span class="keyword">\caption</span>&#123;Visualization of the learned attention maps and unbalanced weights&#125;</span><br><span class="line">	<span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><h2 id="tablegenerater"><a href="#tablegenerater" class="headerlink" title="tablegenerater"></a>tablegenerater</h2><p><a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/">https://www.tablesgenerator.com/</a></p>
+<ul>
+<li>可以通过在CSV中复制数据，然后粘贴到网页上，避免自己一个一个数据的敲</li>
+<li>但是生成的比较不好看，表格细节样式需要自己调</li>
+</ul>
+<h2 id="三线表"><a href="#三线表" class="headerlink" title="三线表"></a>三线表</h2><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;table&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;Performance evaluated on the test-dev and test-std splits of the VQA-v2 dataset. The proposed method is compared with several state-of-the-art methods. The best results are in bold.&#125;</span><br><span class="line"> <span class="keyword">\label</span>&#123;tbl:sota&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;lC&#123;1.5cm&#125;C&#123;1.5cm&#125;C&#123;1.5cm&#125;C&#123;1.5cm&#125;C&#123;1.5cm&#125;&#125; <span class="comment">% 控制表格的格式</span></span><br><span class="line"><span class="keyword">\toprule</span></span><br><span class="line"><span class="keyword">\multirow</span>&#123;2&#125;&#123;*&#125;&#123;<span class="keyword">\textbf</span>&#123;Method&#125;&#125; <span class="built_in">&amp;</span> <span class="keyword">\multicolumn</span>&#123;4&#125;&#123;c&#125;&#123;<span class="keyword">\textbf</span>&#123;Test-dev&#125;&#125; <span class="built_in">&amp;</span> <span class="keyword">\textbf</span>&#123;Test-std&#125;   <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\specialrule</span>&#123;0em&#125;&#123;1pt&#125;&#123;1pt&#125;</span><br><span class="line"><span class="keyword">\cline</span>&#123;2-6&#125;  </span><br><span class="line"><span class="keyword">\specialrule</span>&#123;0em&#125;&#123;2pt&#125;&#123;2pt&#125; <span class="comment">% 特别好用，可以增加一个透明的线，视觉效果是空的</span></span><br><span class="line"> <span class="built_in">&amp;</span>   <span class="keyword">\textbf</span>&#123;Yes/No&#125; <span class="built_in">&amp;</span> <span class="keyword">\textbf</span>&#123;Number&#125; <span class="built_in">&amp;</span> <span class="keyword">\textbf</span>&#123;Other&#125; <span class="built_in">&amp;</span> <span class="keyword">\textbf</span>&#123;All&#125; <span class="built_in">&amp;</span> <span class="keyword">\textbf</span>&#123;All&#125; <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\midrule</span></span><br><span class="line">BUTD <span class="keyword">\cite</span>&#123;anderson2018bottom&#125; <span class="built_in">&amp;</span> 81.82 <span class="built_in">&amp;</span> 44.21 <span class="built_in">&amp;</span> 56.05 <span class="built_in">&amp;</span> 65.32 <span class="built_in">&amp;</span> 65.67 <span class="keyword">\\</span></span><br><span class="line">DFAF <span class="keyword">\cite</span>&#123;gao2019dynamic&#125;  <span class="built_in">&amp;</span> 86.09 <span class="built_in">&amp;</span> <span class="keyword">\textbf</span>&#123;53.32&#125; <span class="built_in">&amp;</span> 60.49 <span class="built_in">&amp;</span> 70.22 <span class="built_in">&amp;</span> 70.34 <span class="keyword">\\</span></span><br><span class="line">MLIN <span class="keyword">\cite</span>&#123;gao2019multi&#125;  <span class="built_in">&amp;</span> 85.96 <span class="built_in">&amp;</span> 52.93 <span class="built_in">&amp;</span> 60.4 <span class="built_in">&amp;</span> 70.18 <span class="built_in">&amp;</span> 70.28 <span class="keyword">\\</span></span><br><span class="line">MCAN <span class="keyword">\cite</span>&#123;yu2019deep&#125;  <span class="built_in">&amp;</span> 87.06 <span class="built_in">&amp;</span> 53.26 <span class="built_in">&amp;</span> 60.66 <span class="built_in">&amp;</span> 70.63 <span class="built_in">&amp;</span> 70.90 <span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\midrule</span></span><br><span class="line">  <span class="keyword">\bottomrule</span></span><br><span class="line">  <span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line">  <span class="keyword">\end</span>&#123;center&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">booktabs宏包画三线表，线条精细可变</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amsmath&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;amssymb&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;latexsym&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;CJK&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">%\usepackage&#123;dcolumn&#125;</span></span><br><span class="line"><span class="comment">%\usepackage&#123;hhline&#125;</span></span><br><span class="line"><span class="comment">%\usepackage&#123;tabularx&#125;</span></span><br><span class="line"><span class="comment">%\usepackage&#123;fancybox&#125;</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;booktabs&#125;</span><br><span class="line"><span class="comment">%\usepackage&#123;makecell&#125;</span></span><br><span class="line"><span class="keyword">\usepackage</span>&#123;array&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\newcommand</span>&#123;<span class="keyword">\PreserveBackslash</span>&#125;[1]&#123;<span class="keyword">\let</span> <span class="keyword">\temp</span> =<span class="keyword">\\</span><span class="params">#1</span> <span class="keyword">\let</span> <span class="keyword">\\</span> = <span class="keyword">\temp</span>&#125;</span><br><span class="line"><span class="keyword">\newcolumntype</span>&#123;C&#125;[1]&#123;&gt;&#123;<span class="keyword">\PreserveBackslash</span><span class="keyword">\centering</span>&#125;p&#123;<span class="params">#1</span>&#125;&#125;</span><br><span class="line"><span class="keyword">\newcolumntype</span>&#123;R&#125;[1]&#123;&gt;&#123;<span class="keyword">\PreserveBackslash</span><span class="keyword">\raggedleft</span>&#125;p&#123;<span class="params">#1</span>&#125;&#125;</span><br><span class="line"><span class="keyword">\newcolumntype</span>&#123;L&#125;[1]&#123;&gt;&#123;<span class="keyword">\PreserveBackslash</span><span class="keyword">\raggedright</span>&#125;p&#123;<span class="params">#1</span>&#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;CJK*&#125;&#123;GBK&#125;&#123;song&#125;</span><br><span class="line"><span class="keyword">\CJKtilde</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\renewcommand</span>&#123;<span class="keyword">\cmidrulesep</span>&#125;&#123;1mm&#125; <span class="comment">%定义两条相邻\cmidrule之间的间隔</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\aboverulesep</span>&#125;&#123;6mm&#125; <span class="comment">%在线条[不包括\toprule]上面增加一段垂直距离，此处为6mm</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\belowrulesep</span>&#125;&#123;3mm&#125; <span class="comment">%在线条[不包括\bottomrule]下面增加一条垂直距离，此处为3mm</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\abovetopsep</span>&#125;&#123;1cm&#125;  <span class="comment">%在线条\toprule上面，即表格与上面的文字之间的距离。</span></span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\belowbottomsep</span>&#125;&#123;2cm&#125;<span class="comment">%在线条\bottomrule下面，即表格与下面的文字之间的距离。</span></span><br><span class="line">这是表格上面的文字。 这是表格上面的文字。 这是表格上面的文字。 这是表格上面的文字。</span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;llr&#125;</span><br><span class="line"><span class="keyword">\toprule</span></span><br><span class="line"><span class="keyword">\multicolumn</span>&#123;2&#125;&#123;c&#125;&#123;Item&#125;<span class="keyword">\\</span></span><br><span class="line"></span><br><span class="line">Animal <span class="built_in">&amp;</span> Descriptioin <span class="built_in">&amp;</span> Price(<span class="keyword">\$</span>)<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\midrule</span></span><br><span class="line">Gnat <span class="built_in">&amp;</span> per gram <span class="built_in">&amp;</span> 13.65<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\cmidrule</span>&#123;1-2&#125;<span class="keyword">\morecmidrules</span><span class="keyword">\cmidrule</span>&#123;2-3&#125; <span class="comment">%两条\cmidrule之间的间隔由命令\cmidrulesep定义。</span></span><br><span class="line">     <span class="built_in">&amp;</span> each     <span class="built_in">&amp;</span> 0.01 <span class="keyword">\\</span></span><br><span class="line">Gnu  <span class="built_in">&amp;</span> stuffed  <span class="built_in">&amp;</span> 92.50<span class="keyword">\\</span></span><br><span class="line">Emu  <span class="built_in">&amp;</span> stuffed  <span class="built_in">&amp;</span> 33.33<span class="keyword">\\</span></span><br><span class="line">Armadillo <span class="built_in">&amp;</span> frozen <span class="built_in">&amp;</span> 8.99<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\bottomrule</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line">表格下面的文字。 表格下面的文字。 表格下面的文字。 表格下面的文字。 表格下面的文字。 表格下面的文字。 表格下面的文字。 表格下面的文字。</span><br><span class="line"><span class="keyword">\end</span>&#123;CJK*&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br><span class="line">————————————————</span><br><span class="line">版权声明：本文为CSDN博主「lishoubox」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</span><br><span class="line">原文链接：https://blog.csdn.net/lishoubox/article/details/7331653</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="并排插入一张图片和一张表格"><a href="#并排插入一张图片和一张表格" class="headerlink" title="并排插入一张图片和一张表格"></a>并排插入一张图片和一张表格</h1><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;[b]&#123;.5<span class="keyword">\linewidth</span>&#125;</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\includegraphics</span>[width=3cm]&#123;example-image-1x1.pdf&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;Image&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;<span class="comment">%</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;[b]&#123;.5<span class="keyword">\linewidth</span>&#125;</span><br><span class="line"><span class="keyword">\centering</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;tabular&#125;&#123;|c|c|&#125;</span><br><span class="line"><span class="keyword">\hline</span></span><br><span class="line">aa <span class="built_in">&amp;</span> bb <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line">cc <span class="built_in">&amp;</span> dd <span class="keyword">\\</span> <span class="keyword">\hline</span></span><br><span class="line"><span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"><span class="keyword">\captionof</span>&#123;table&#125;&#123;Table&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\caption</span>&#123;Ablation study for Variants&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1443,7 +1586,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
