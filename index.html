@@ -173,6 +173,235 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/15/%E7%89%A9%E7%90%86%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/15/%E7%89%A9%E7%90%86%E5%B1%82/" class="post-title-link" itemprop="url">物理层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-15 20:46:36 / Modified: 22:43:37" itemprop="dateCreated datePublished" datetime="2021-03-15T20:46:36+08:00">2021-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/03/15/%E7%89%A9%E7%90%86%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="物理层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/03/15/%E7%89%A9%E7%90%86%E5%B1%82/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/15/%E7%89%A9%E7%90%86%E5%B1%82/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="整体"><a href="#整体" class="headerlink" title="整体"></a>整体</h1><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315202725916.png" alt="image-20210315202725916"></p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315202738243.png" alt="image-20210315202738243"></p>
+<h1 id="2-物理层"><a href="#2-物理层" class="headerlink" title="2. 物理层"></a>2. 物理层</h1><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315202758846.png" alt="image-20210315202758846"></p>
+<h2 id="2-1-基本术语"><a href="#2-1-基本术语" class="headerlink" title="2.1 基本术语"></a>2.1 基本术语</h2><ol>
+<li>数据（data）：运送消息的实体</li>
+<li>信号（signal）：数据的电气或电磁的表现，或则说信号是适合在传输介质上传输的对象</li>
+<li>码元（code）：在使用时间域的波形来表示数字信号时，代表不同离散数值的基本波形</li>
+<li>单工（simplex）：只能有一个方向的通信而没有反方向的交互</li>
+<li>半双工（half duplex）：通信的双方都可以发送信息，但不能双方同时发送</li>
+<li>全双工（full deplex）：通信的双方可以同时发送和接收信息。</li>
+</ol>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315203302223.png" alt="image-20210315203302223"></p>
+<ol start="7">
+<li>失真：失去真实性。主要是指接受到的信号和发送的信号不同。有磨损和衰减。影响失真成都的因素：码元传输速率，信号传输距离，噪声干扰，传输媒体质量。</li>
+</ol>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315203512058.png" alt="image-20210315203512058"></p>
+<ol start="8">
+<li>奈氏准则：在任何信道中，码元传输的效率是有上限的，传输速率超过此上限，就会出现严重的码间串扰问题，使接收端对码元的识别成为不可能</li>
+<li>香农定理：在带宽受限且有噪声的信道中，为了不产生误差，信息的传输速率有上限值。</li>
+<li>信道复用：指多个用户共享同一个信道（并不一定是同时）</li>
+</ol>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315203830416.png" alt="image-20210315203830416"></p>
+<h2 id="2-2-重要知识点总结"><a href="#2-2-重要知识点总结" class="headerlink" title="2.2 重要知识点总结"></a>2.2 重要知识点总结</h2><ol>
+<li>物理层的主要任务是确定与传输媒体接口有关的一个特性，如机械特性，电气特性，功能特性，过程特性</li>
+<li>一个数据通信系统可以分三大部分，即源系统，传输系统，目的系统。</li>
+<li>通信的目的是传送消息，如语音，文字，图像等信息。数据是运送消息的实体。信号则是数据的电器或电磁的表现。</li>
+</ol>
+<h2 id="2-3-补充"><a href="#2-3-补充" class="headerlink" title="2.3 补充"></a>2.3 补充</h2><h3 id="2-3-1-物理层主要做什么"><a href="#2-3-1-物理层主要做什么" class="headerlink" title="2.3.1 物理层主要做什么"></a>2.3.1 物理层主要做什么</h3><p>物理层主要做的事情就是透明的传送比特流。也可以将物理层的主要任务描述为确定与传输媒体的接口的一些特性：机械特性（接口所用接线器的一些物理属性如形状尺寸），电气特性（接口电缆的各条线上出现的电压的范围），功能特性（某条线上出现的某一电平的电压的意义），过程特性（对于不同功能的各种可能事件的出场顺序）</p>
+<p>物理层考虑是怎么样才能在连接各种计算机的传输媒体上传输数据比特流，而不是指具体的传输媒体。现有的计算机网络中的硬件设备和传输媒体的种类多，而且通信手段也有许多。物理层的作用正是尽可能的这些传输媒体和通信手段的差异，使物理层上面的数据链路层感觉不到这些差异，这样就可以使数据链路层只考虑完成本层的协议和服务，而不用考虑网络的具体传输媒体和通讯手段是什么。</p>
+<h3 id="2-3-2-几种常用的信道复用技术"><a href="#2-3-2-几种常用的信道复用技术" class="headerlink" title="2.3.2 几种常用的信道复用技术"></a>2.3.2 几种常用的信道复用技术</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/15/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/15/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-title-link" itemprop="url">数据链路层</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-15 20:46:36 / Modified: 22:43:37" itemprop="dateCreated datePublished" datetime="2021-03-15T20:46:36+08:00">2021-03-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/03/15/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="数据链路层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/03/15/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/15/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="1-基本问题"><a href="#1-基本问题" class="headerlink" title="1 基本问题"></a>1 基本问题</h1><h2 id="1-封装成帧"><a href="#1-封装成帧" class="headerlink" title="1. 封装成帧"></a>1. 封装成帧</h2><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315220012090.png" alt="image-20210315220012090"></p>
+<p>将网络层传下来的分组添加首部和尾部，用于标记帧的开始和结束。</p>
+<h2 id="2-透明传输"><a href="#2-透明传输" class="headerlink" title="2. 透明传输"></a>2. 透明传输</h2><p>透明表示一个实际存在的事物看起来好像不存在一样</p>
+<p>帧使用首部和尾部进行定界，如果帧的数据部分含有和首部尾部相同的内容，那么帧的开始和结束位置就会被错误的判定。需要在数据部分出现首部尾部相同的内容前面插入转义字符。如果数据部分出现转义字符，那么就在转移字符前面再加。在接受端进行处理之后可以还原出原始数据。</p>
+<h2 id="3-差错检测"><a href="#3-差错检测" class="headerlink" title="3. 差错检测"></a>3. 差错检测</h2><p>目前数据链路层广泛使用循环冗余检验（CRC）来检查比特差错。</p>
+<h1 id="2-信道分类"><a href="#2-信道分类" class="headerlink" title="2 信道分类"></a>2 信道分类</h1><h2 id="1-广播信道"><a href="#1-广播信道" class="headerlink" title="1. 广播信道"></a>1. 广播信道</h2><p>一对多通信，一个节点发送的数据能够被广播信道上所有的节点接收到。</p>
+<p>所有的节点都在同一个广播信道上发送数据，因此需要有专门的控制方法进行协调，避免发生冲突（碰撞）。</p>
+<p>主要有两张控制方法进行协调，一个是使用信道复用技术，一是使用CSMA/CD协议。</p>
+<h2 id="2-点对点通信"><a href="#2-点对点通信" class="headerlink" title="2. 点对点通信"></a>2. 点对点通信</h2><p>一对一通信。</p>
+<p>因为不会发生碰撞。因此也比较简单，使用PPP协议进行控制。</p>
+<h1 id="3-信道复用技术"><a href="#3-信道复用技术" class="headerlink" title="3 信道复用技术"></a>3 信道复用技术</h1><h2 id="1-频分复用"><a href="#1-频分复用" class="headerlink" title="1. 频分复用"></a>1. 频分复用</h2><p>频分复用的所有主机在相同的时间占用不同的频率代换资源</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315221549804.png" alt="image-20210315221549804"></p>
+<h2 id="2-时分复用"><a href="#2-时分复用" class="headerlink" title="2. 时分复用"></a>2. 时分复用</h2><p>时分复用的所有主机在不同的时间占用相同的频率带宽资源</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315221642952.png" alt="image-20210315221642952"></p>
+<p>使用频分复用和时分复用进行通信，在通信的过程中主机会一直占用一部分通信资源，但是由于计算机数据的突发性质。通信过程没必要一直占用信道资源而不让出给其他用户使用。因此这两种方式对信道的利用率都不高。</p>
+<h2 id="3-统计时分复用"><a href="#3-统计时分复用" class="headerlink" title="3. 统计时分复用"></a>3. 统计时分复用</h2><p>是对时分复用的一种改进，不固定每个用户在时分复用帧中的位置，只要有数据就集中起来组成统计时分复用帧然后发送</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210315223819174.png" alt="image-20210315223819174"></p>
+<h2 id="4-波分复用"><a href="#4-波分复用" class="headerlink" title="4. 波分复用"></a>4. 波分复用</h2><p>光的频分复用。由于光的频率很高，因此习惯上用波长而不是频率来表示所使用的光载波。</p>
+<h2 id="5-码分复用"><a href="#5-码分复用" class="headerlink" title="5. 码分复用"></a>5. 码分复用</h2><h1 id="4-CSMA-CD协议"><a href="#4-CSMA-CD协议" class="headerlink" title="4 CSMA/CD协议"></a>4 CSMA/CD协议</h1><p>载波监听多点接入/碰撞检测</p>
+<ul>
+<li>多点接入：说明这是总线型网络，许多主机以多点的方式连接到总线上。</li>
+<li>载波监听：每个主机都必须不断的监听信道。在发送前，如果监听到信道正在使用，就必须等待。</li>
+<li>碰撞检测：在发送中，如果监听到信道已有其他主机正在发送数据，就表示发生了碰撞。虽然每个主机在发送数据之前都已经监听到信道为空闲，但是由于传播时延的存在，还是有可能会发生碰撞。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/08/%E6%95%B0%E7%BB%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1058,207 +1287,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/19/sliding-window/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="witness">
-      <meta itemprop="description" content="learn, love, sport, life">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="witness daily">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/19/sliding-window/" class="post-title-link" itemprop="url">sliding_window</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-19 00:29:15" itemprop="dateCreated datePublished" datetime="2021-02-19T00:29:15+08:00">2021-02-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-25 15:42:52" itemprop="dateModified" datetime="2021-02-25T15:42:52+08:00">2021-02-25</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/02/19/sliding-window/" class="post-meta-item leancloud_visitors" data-flag-title="sliding_window" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2021/02/19/sliding-window/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/19/sliding-window/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h1><h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (right &lt; s.size()) &#123;</span><br><span class="line">    # 增大窗口</span><br><span class="line">    window.add(s[right]);</span><br><span class="line">    right++;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (window needs shrink) &#123;</span><br><span class="line">        #缩小窗口</span><br><span class="line">        window.remove(S[LEFT]);</span><br><span class="line">        left++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="1052-爱生气的书店老板"><a href="#1052-爱生气的书店老板" class="headerlink" title="1052 爱生气的书店老板"></a>1052 爱生气的书店老板</h1><h2 id="题目信息"><a href="#题目信息" class="headerlink" title="题目信息"></a>题目信息</h2><p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210223113746379.png" alt="image-20210223113746379"></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
-<li>题目要求最多有多少客户能够感到满意的数量</li>
-<li>那么不生气时候的客户肯定是满意的</li>
-<li>新的customers =[0,0,0,2,0,1,0,5]</li>
-<li>然后就是连续不生气的技能持续时间是X分钟，达到收益最大化，是一个滑动窗口的问题。</li>
-</ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxSatisfied</span><span class="params">(<span class="keyword">int</span>[] customers, <span class="keyword">int</span>[] grumpy, <span class="keyword">int</span> X)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> resOri = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; customers.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (grumpy[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                resOri = resOri + customers[i];</span><br><span class="line">                customers[i] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> resAdd = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (right &lt; customers.length) &#123;</span><br><span class="line">            <span class="comment">// 使用temp来记录窗口中的统计值</span></span><br><span class="line">            temp = temp + customers[right]; </span><br><span class="line">            resAdd = Math.max(temp, resAdd);</span><br><span class="line">            right++;</span><br><span class="line">            <span class="keyword">while</span> ((right - left) &gt; (X - <span class="number">1</span>)) &#123;</span><br><span class="line">                temp = temp - customers[left];</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resOri + resAdd;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/11/general-methods/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="witness">
-      <meta itemprop="description" content="learn, love, sport, life">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="witness daily">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/11/general-methods/" class="post-title-link" itemprop="url">general_methods</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-11 17:58:46" itemprop="dateCreated datePublished" datetime="2021-02-11T17:58:46+08:00">2021-02-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-02-15 22:54:18" itemprop="dateModified" datetime="2021-02-15T22:54:18+08:00">2021-02-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/02/11/general-methods/" class="post-meta-item leancloud_visitors" data-flag-title="general_methods" title="Views">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">Views: </span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2021/02/11/general-methods/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/02/11/general-methods/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1324,14 +1356,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
