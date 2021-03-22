@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-03-15T14:43:37.732Z</updated>
+  <updated>2021-03-22T06:18:57.600Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,224 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>回溯</title>
+    <link href="http://example.com/2021/03/22/backtracking/"/>
+    <id>http://example.com/2021/03/22/backtracking/</id>
+    <published>2021-03-22T00:46:36.000Z</published>
+    <updated>2021-03-22T06:18:57.600Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;BFS&quot;&gt;&lt;a href=&quot;#BFS&quot; class=&quot;headerlink&quot; title=&quot;BFS&quot;&gt;&lt;/a&gt;BFS&lt;/h1&gt;&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>肩</title>
+    <link href="http://example.com/2021/03/22/%E8%82%A9/"/>
+    <id>http://example.com/2021/03/22/%E8%82%A9/</id>
+    <published>2021-03-22T00:46:36.000Z</published>
+    <updated>2021-03-22T06:19:06.383Z</updated>
+    
+    
+    
+    
+    <category term="健身" scheme="http://example.com/categories/%E5%81%A5%E8%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>背</title>
+    <link href="http://example.com/2021/03/22/%E8%83%8C/"/>
+    <id>http://example.com/2021/03/22/%E8%83%8C/</id>
+    <published>2021-03-22T00:46:36.000Z</published>
+    <updated>2021-03-22T06:19:06.247Z</updated>
+    
+    
+    
+    
+    <category term="健身" scheme="http://example.com/categories/%E5%81%A5%E8%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>arraylist</title>
+    <link href="http://example.com/2021/03/22/arraylist/"/>
+    <id>http://example.com/2021/03/22/arraylist/</id>
+    <published>2021-03-22T00:46:36.000Z</published>
+    <updated>2021-03-22T06:18:57.604Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;-</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>stringbuffer</title>
+    <link href="http://example.com/2021/03/21/stringbuffer/"/>
+    <id>http://example.com/2021/03/21/stringbuffer/</id>
+    <published>2021-03-21T13:46:36.000Z</published>
+    <updated>2021-03-22T06:18:56.652Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;增&quot;&gt;&lt;a href=&quot;#增&quot; class=&quot;headerlink&quot; title=&quot;增&quot;&gt;&lt;/a&gt;增&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;StringBuffer(“jackk”) 在创建对象的时候赋值&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;append()</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>传输层</title>
+    <link href="http://example.com/2021/03/21/%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
+    <id>http://example.com/2021/03/21/%E4%BC%A0%E8%BE%93%E5%B1%82/</id>
+    <published>2021-03-21T00:46:36.000Z</published>
+    <updated>2021-03-22T06:19:13.703Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;网络层只把分组发送给目的主机，但是真正通信的并不是主机，而是主机中的进程。传输层提供了进程间的逻辑通信，传输层向高层用户屏蔽了下面网络层的核心细节，使应用程序看起来像是在两个传输层实体之间有一条端到端的逻辑通信信道。&lt;/p&gt;
+&lt;h1 id=&quot;UDP和TCP的特点&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="计算机网络" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>linked list</title>
+    <link href="http://example.com/2021/03/20/linkedlist/"/>
+    <id>http://example.com/2021/03/20/linkedlist/</id>
+    <published>2021-03-20T00:46:36.000Z</published>
+    <updated>2021-03-22T06:18:56.976Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;35-复杂链表的复制&quot;&gt;&lt;a href=&quot;#35-复杂链表的复制&quot; class=&quot;headerlink&quot; title=&quot;35 复杂链表的复制&quot;&gt;&lt;/a&gt;35 复杂链表的复制&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>二分查找</title>
+    <link href="http://example.com/2021/03/17/Binary-search/"/>
+    <id>http://example.com/2021/03/17/Binary-search/</id>
+    <published>2021-03-17T13:46:36.000Z</published>
+    <updated>2021-03-22T06:18:57.464Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;在排序数据中查找数字&quot;&gt;&lt;a href=&quot;#在排序数据中查找数字&quot; class=&quot;headerlink&quot; title=&quot;在排序数据中查找数字&quot;&gt;&lt;/a&gt;在排序数据中查找数字&lt;/h1&gt;&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>胸</title>
+    <link href="http://example.com/2021/03/17/%E8%83%B8/"/>
+    <id>http://example.com/2021/03/17/%E8%83%B8/</id>
+    <published>2021-03-17T00:46:36.000Z</published>
+    <updated>2021-03-22T06:19:06.247Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;卧推&quot;&gt;&lt;a href=&quot;#卧推&quot; class=&quot;headerlink&quot; title=&quot;卧推&quot;&gt;&lt;/a&gt;卧推&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="健身" scheme="http://example.com/categories/%E5%81%A5%E8%BA%AB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>网络层</title>
+    <link href="http://example.com/2021/03/16/%E7%BD%91%E7%BB%9C%E5%B1%82/"/>
+    <id>http://example.com/2021/03/16/%E7%BD%91%E7%BB%9C%E5%B1%82/</id>
+    <published>2021-03-16T00:46:36.000Z</published>
+    <updated>2021-03-22T06:19:13.563Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;因为网络层是整个互联网的核心，因此应当让网络层尽可能简单。网络层向上只提供简单灵活的 无连接的</summary>
+        
+      
+    
+    
+    
+    <category term="计算机网络" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>物理层</title>
@@ -44,7 +262,7 @@
     <link href="http://example.com/2021/03/15/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
     <id>http://example.com/2021/03/15/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</id>
     <published>2021-03-15T12:46:36.000Z</published>
-    <updated>2021-03-15T14:43:37.736Z</updated>
+    <updated>2021-03-22T06:19:13.699Z</updated>
     
     
       
@@ -179,18 +397,18 @@
   </entry>
   
   <entry>
-    <title>DFS</title>
-    <link href="http://example.com/2021/02/22/DFS/"/>
-    <id>http://example.com/2021/02/22/DFS/</id>
+    <title>example</title>
+    <link href="http://example.com/2021/02/22/example/"/>
+    <id>http://example.com/2021/02/22/example/</id>
     <published>2021-02-22T13:46:36.000Z</published>
-    <updated>2021-02-25T07:42:53.060Z</updated>
+    <updated>2021-03-22T06:18:57.152Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;回溯算法&quot;&gt;&lt;a href=&quot;#回溯算法&quot; class=&quot;headerlink&quot; title=&quot;回溯算法&quot;&gt;&lt;/a&gt;回溯算法&lt;/h1&gt;&lt;h2 id=&quot;模板&quot;&gt;&lt;a href=&quot;#模板&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -225,41 +443,18 @@
   </entry>
   
   <entry>
-    <title>剑指offer</title>
-    <link href="http://example.com/2021/02/19/%E5%89%91%E6%8C%87offer/"/>
-    <id>http://example.com/2021/02/19/%E5%89%91%E6%8C%87offer/</id>
-    <published>2021-02-19T13:46:36.000Z</published>
-    <updated>2021-03-02T01:52:20.699Z</updated>
+    <title>DFS</title>
+    <link href="http://example.com/2021/02/22/DFS/"/>
+    <id>http://example.com/2021/02/22/DFS/</id>
+    <published>2021-02-22T13:46:36.000Z</published>
+    <updated>2021-03-22T06:18:57.324Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;简单&quot;&gt;&lt;a href=&quot;#简单&quot; class=&quot;headerlink&quot; title=&quot;简单&quot;&gt;&lt;/a&gt;简单&lt;/h1&gt;&lt;h2 id=&quot;03-数组中重复的数字&quot;&gt;&lt;a href=&quot;#03-数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;03</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>sliding_window</title>
-    <link href="http://example.com/2021/02/19/sliding-window/"/>
-    <id>http://example.com/2021/02/19/sliding-window/</id>
-    <published>2021-02-18T16:29:15.000Z</published>
-    <updated>2021-02-25T07:42:52.880Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;滑动窗口&quot;&gt;&lt;a href=&quot;#滑动窗口&quot; class=&quot;headerlink&quot; title=&quot;滑动窗口&quot;&gt;&lt;/a&gt;滑动窗口&lt;/h1&gt;&lt;h2 id=&quot;模板&quot;&gt;&lt;a href=&quot;#模板&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;回溯算法&quot;&gt;&lt;a href=&quot;#回溯算法&quot; class=&quot;headerlink&quot; title=&quot;回溯算法&quot;&gt;&lt;/a&gt;回溯算法&lt;/h1&gt;&lt;h2 id=&quot;模板&quot;&gt;&lt;a href=&quot;#模板&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -267,211 +462,6 @@
     
     <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>general_methods</title>
-    <link href="http://example.com/2021/02/11/general-methods/"/>
-    <id>http://example.com/2021/02/11/general-methods/</id>
-    <published>2021-02-11T09:58:46.000Z</published>
-    <updated>2021-02-15T14:54:18.814Z</updated>
-    
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>进程间通信</title>
-    <link href="http://example.com/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/"/>
-    <id>http://example.com/2021/02/06/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</id>
-    <published>2021-02-06T13:46:36.000Z</published>
-    <updated>2021-03-15T07:10:36.975Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;进程间通信（IPC-interprocess-communication）&quot;&gt;&lt;a href=&quot;#进程间通信（IPC-interprocess-communication）&quot; class=&quot;headerlink&quot; title=&quot;进程间通信（IPC,</summary>
-        
-      
-    
-    
-    
-    <category term="operating_system" scheme="http://example.com/categories/operating-system/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>java_fundation_reflection</title>
-    <link href="http://example.com/2021/02/06/java-fundation-reflection/"/>
-    <id>http://example.com/2021/02/06/java-fundation-reflection/</id>
-    <published>2021-02-06T13:46:36.000Z</published>
-    <updated>2021-02-07T07:58:25.225Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;反射&quot;&gt;&lt;a href=&quot;#反射&quot; class=&quot;headerlink&quot; title=&quot;反射&quot;&gt;&lt;/a&gt;反射&lt;/h1&gt;&lt;h2 id=&quot;反射机制&quot;&gt;&lt;a href=&quot;#反射机制&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>from_javaguide</title>
-    <link href="http://example.com/2021/02/06/javaguide/"/>
-    <id>http://example.com/2021/02/06/javaguide/</id>
-    <published>2021-02-06T13:46:36.000Z</published>
-    <updated>2021-03-15T07:20:03.588Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;javaguide&quot;&gt;&lt;a href=&quot;#javaguide&quot; class=&quot;headerlink&quot; title=&quot;javaguide&quot;&gt;&lt;/a&gt;javaguide&lt;/h1&gt;&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="operating_system" scheme="http://example.com/categories/operating-system/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>java_fundation_EIP</title>
-    <link href="http://example.com/2021/02/06/java-fundation-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E4%B8%AA%E7%89%B9%E5%BE%81/"/>
-    <id>http://example.com/2021/02/06/java-fundation-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E4%B8%AA%E7%89%B9%E5%BE%81/</id>
-    <published>2021-02-06T13:46:34.000Z</published>
-    <updated>2021-02-07T11:52:53.042Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/huipuimage-20210207164003306.png&quot; alt=&quot;image-20210207164003306&quot;&gt;&lt;/p&gt;
-&lt;h1</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>picground</title>
-    <link href="http://example.com/2021/02/04/picground/"/>
-    <id>http://example.com/2021/02/04/picground/</id>
-    <published>2021-02-04T14:47:22.000Z</published>
-    <updated>2021-02-04T14:59:43.465Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;fial-to-fatch&quot;&gt;&lt;a href=&quot;#fial-to-fatch&quot; class=&quot;headerlink&quot; title=&quot;fial to fatch&quot;&gt;&lt;/a&gt;fial to fatch&lt;/h1&gt;&lt;p&gt;当typora上传显示为fail to</summary>
-        
-      
-    
-    
-    
-    <category term="other" scheme="http://example.com/categories/other/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>java_fundation_enum</title>
-    <link href="http://example.com/2021/02/04/java-fundation_enum/"/>
-    <id>http://example.com/2021/02/04/java-fundation_enum/</id>
-    <published>2021-02-04T14:24:38.000Z</published>
-    <updated>2021-02-06T13:49:46.889Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;继承&quot;&gt;&lt;a href=&quot;#继承&quot; class=&quot;headerlink&quot; title=&quot;继承&quot;&gt;&lt;/a&gt;继承&lt;/h1&gt;&lt;h2 id=&quot;参数数量可变的方法&quot;&gt;&lt;a href=&quot;#参数数量可变的方法&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="java" scheme="http://example.com/categories/java/"/>
-    
-    
-    <category term="java" scheme="http://example.com/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dynamic_programming</title>
-    <link href="http://example.com/2021/02/02/dynamic-programming/"/>
-    <id>http://example.com/2021/02/02/dynamic-programming/</id>
-    <published>2021-02-02T09:10:12.000Z</published>
-    <updated>2021-03-02T01:52:21.055Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;19-正则表达式匹配&quot;&gt;&lt;a href=&quot;#19-正则表达式匹配&quot; class=&quot;headerlink&quot; title=&quot;19 正则表达式匹配&quot;&gt;&lt;/a&gt;19 正则表达式匹配&lt;/h1&gt;&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>tree</title>
-    <link href="http://example.com/2021/01/31/tree/"/>
-    <id>http://example.com/2021/01/31/tree/</id>
-    <published>2021-01-31T15:10:16.000Z</published>
-    <updated>2021-02-18T16:08:50.446Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;刷题先刷二叉树，回溯  动态规划  分治算法 其实都是树的问题。&lt;br&gt;而树的问题永远都是树的递归遍历框架&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="leetcode" scheme="http://example.com/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="http://example.com/tags/leetcode/"/>
     
   </entry>
   
