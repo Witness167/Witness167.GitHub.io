@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="域名系统DNS是一个分布式数据库，提供了主机名和IP地址之间相互转换的服务。这里的分布式数据库是指，每个站点只保留了他自己的那部分数据。 域名具有层次结构，从上到下依次为：根域名、顶级域名、二级域名  DNS可以使用UDP或者TCP进行传输，使用的端口号都为53。大多数情况下DNS使用UDP进行传输，这就要求域名服务器和域名解析器都必须自己出来超时和重传从而保证可靠性。在两种情况下会进行TCP传输">
+<meta property="og:type" content="article">
+<meta property="og:title" content="应用层">
+<meta property="og:url" content="http://example.com/2021/03/22/%E5%BA%94%E7%94%A8%E5%B1%82/index.html">
+<meta property="og:site_name" content="witness daily">
+<meta property="og:description" content="域名系统DNS是一个分布式数据库，提供了主机名和IP地址之间相互转换的服务。这里的分布式数据库是指，每个站点只保留了他自己的那部分数据。 域名具有层次结构，从上到下依次为：根域名、顶级域名、二级域名  DNS可以使用UDP或者TCP进行传输，使用的端口号都为53。大多数情况下DNS使用UDP进行传输，这就要求域名服务器和域名解析器都必须自己出来超时和重传从而保证可靠性。在两种情况下会进行TCP传输">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322192320866.png">
+<meta property="og:image" content="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322193211135.png">
+<meta property="og:image" content="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322193314105.png">
+<meta property="og:image" content="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322194027643.png">
+<meta property="og:image" content="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322194606239.png">
+<meta property="og:image" content="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322194728551.png">
+<meta property="article:published_time" content="2021-03-22T00:46:36.000Z">
+<meta property="article:modified_time" content="2021-03-23T12:15:39.436Z">
+<meta property="article:author" content="witness">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322192320866.png">
+
+<link rel="canonical" href="http://example.com/2021/03/22/%E5%BA%94%E7%94%A8%E5%B1%82/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>应用层 | witness daily</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="witness daily" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">witness daily</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="heartbeat fa-fw"></i>Commonweal 404</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/22/%E5%BA%94%E7%94%A8%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="witness">
+      <meta itemprop="description" content="learn, love, sport, life">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="witness daily">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          应用层
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-22 08:46:36" itemprop="dateCreated datePublished" datetime="2021-03-22T08:46:36+08:00">2021-03-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-03-23 20:15:39" itemprop="dateModified" datetime="2021-03-23T20:15:39+08:00">2021-03-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/03/22/%E5%BA%94%E7%94%A8%E5%B1%82/" class="post-meta-item leancloud_visitors" data-flag-title="应用层" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2021/03/22/%E5%BA%94%E7%94%A8%E5%B1%82/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/22/%E5%BA%94%E7%94%A8%E5%B1%82/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h1><p>DNS是一个分布式数据库，提供了主机名和IP地址之间相互转换的服务。这里的分布式数据库是指，每个站点只保留了他自己的那部分数据。</p>
+<p>域名具有层次结构，从上到下依次为：根域名、顶级域名、二级域名</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322192320866.png" alt="image-20210322192320866"></p>
+<p>DNS可以使用UDP或者TCP进行传输，使用的端口号都为53。大多数情况下DNS使用UDP进行传输，这就要求域名服务器和域名解析器都必须自己出来超时和重传从而保证可靠性。在两种情况下会进行TCP传输：</p>
+<ul>
+<li>如果返回的响应超过512字节（UDP最大只支持512字节的数据）</li>
+<li>区域传送（区域传送是主域名服务器向辅助域名服务器传送变化的那部分数据）</li>
+</ul>
+<h1 id="文件传送协议"><a href="#文件传送协议" class="headerlink" title="文件传送协议"></a>文件传送协议</h1><p>FTP使用TCP进行连接，它需要两个连接来传送一个文件：</p>
+<ul>
+<li>控制连接：服务器打开端口号21等待客户端的连接，客户端主动建立连接后，使用这个连接将客户端的命令传送给服务器，并等待服务器的应答</li>
+<li>数据连接：用来传送一个文件数据</li>
+</ul>
+<p>根据数据连接是否是服务器端主动建立，FTP有主动和被动两种模式：</p>
+<ul>
+<li>主动模式：服务器端主动建立数据连接，其中服务的端口号为20，客户端的端口号随机，但是必须大于1024，因为0~1023是熟知端口号。</li>
+</ul>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322193211135.png" alt="image-20210322193211135"></p>
+<ul>
+<li>被动模式：客户端主动建立数据连接，其中客户端的端口号由客户端自己制定，服务器端的端口号随机。</li>
+</ul>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322193314105.png" alt="image-20210322193314105"></p>
+<p>主动模式要求客户端开放端口号给服务器端，需要去配置客户端的防火墙。被动模式只需要服务器端开放端口号即可，无需客户端配置防火墙。但是被动模式会导致服务器端的安全性减弱，因为开放了过多的端口号。</p>
+<h1 id="动态主机配置协议"><a href="#动态主机配置协议" class="headerlink" title="动态主机配置协议"></a>动态主机配置协议</h1><p>DHCP(dynamic host configuration protocol) 提供了即插即用的连网方式，用户不再需要手动配置IP等信息。</p>
+<p>DFCP配置的内容不仅是IP地址，还包括子网掩码、网关IP地址。</p>
+<p>DHCP工作过程如下：</p>
+<ol>
+<li>客户端发送DIScover报文，该报文的目的地址是255.255.255.255:67,源地址为0.0.0.0:68，被放入UDP中，该报文被广播到同一个子网的所有主机上。如果客户端和DHCP服务器不在同一个子网，就需要使用中继代理。</li>
+<li>DHCP服务器收到discover报文后，发送offer报文给客户端，该报文包含了客户端所需要的信息。因为客户端可能受到多个DHCP服务器提供的信息，因此客户端需要进行选择</li>
+<li>如果客户端选择了某个DHCP服务器提供的信息，那么就发送request报文给该DHCP服务器</li>
+<li>DHCP服务器发送ACK保文，表示客户端此时可以使用提供给他的信息。</li>
+</ol>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322194027643.png" alt="image-20210322194027643"></p>
+<h1 id="远程登陆协议"><a href="#远程登陆协议" class="headerlink" title="远程登陆协议"></a>远程登陆协议</h1><p>TELNET用于登陆到远程主机上，并且远程主机上的输出也会返回</p>
+<p>TELNET可以适应许多计算机和操作系统的差异，例如不同操作系统系统的换行符定义</p>
+<h1 id="电子邮件协议"><a href="#电子邮件协议" class="headerlink" title="电子邮件协议"></a>电子邮件协议</h1><p>一个电子邮件系统由三部分组成：用户代理、邮件服务器以及邮件协议。</p>
+<p>邮件协议包含发送协议和读取协议，发送协议常用SMTP，读取协议常用POP3和IMAP</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322194606239.png" alt="image-20210322194606239"></p>
+<h2 id="SMTP"><a href="#SMTP" class="headerlink" title="SMTP"></a>SMTP</h2><p>SMTP只能发送ASCII码，而互联网邮件扩充MIME可以发送二进制文件。MIME并没有改动或者取代SMTP，而是增加邮件主题的结构，定义了非ASCII玛 的编码规则。</p>
+<p><img src="https://picbed-1259300298.cos.ap-nanjing.myqcloud.com/image-20210322194728551.png" alt="image-20210322194728551"></p>
+<h2 id="POP3"><a href="#POP3" class="headerlink" title="POP3"></a>POP3</h2><p>POP3的特点是只要用户从服务器上读取了邮件，就把该邮件删了</p>
+<h2 id="IMAP"><a href="#IMAP" class="headerlink" title="IMAP"></a>IMAP</h2><p>IMAP协议中客户端和服务器上的邮件保持同步，如果不手动删除邮件，那么服务器上的邮件也不会删除。IMAP 这种做法可以让用户随时随地去访问服务器上的邮件。</p>
+<h2 id="常用端口"><a href="#常用端口" class="headerlink" title="常用端口"></a>常用端口</h2><table>
+<thead>
+<tr>
+<th align="center">应用</th>
+<th align="center">应用层协议</th>
+<th align="center">端口号</th>
+<th align="center">传输层协议</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">域名解析</td>
+<td align="center">DNS</td>
+<td align="center">53</td>
+<td align="center">UDP/TCP</td>
+<td align="center">长度超过 512 字节时使用 TCP</td>
+</tr>
+<tr>
+<td align="center">动态主机配置协议</td>
+<td align="center">DHCP</td>
+<td align="center">67/68</td>
+<td align="center">UDP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">简单网络管理协议</td>
+<td align="center">SNMP</td>
+<td align="center">161/162</td>
+<td align="center">UDP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">文件传送协议</td>
+<td align="center">FTP</td>
+<td align="center">20/21</td>
+<td align="center">TCP</td>
+<td align="center">控制连接 21，数据连接 20</td>
+</tr>
+<tr>
+<td align="center">远程终端协议</td>
+<td align="center">TELNET</td>
+<td align="center">23</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">超文本传送协议</td>
+<td align="center">HTTP</td>
+<td align="center">80</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">简单邮件传送协议</td>
+<td align="center">SMTP</td>
+<td align="center">25</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">邮件读取协议</td>
+<td align="center">POP3</td>
+<td align="center">110</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">网际报文存取协议</td>
+<td align="center">IMAP</td>
+<td align="center">143</td>
+<td align="center">TCP</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h1 id="web页面请求过程"><a href="#web页面请求过程" class="headerlink" title="web页面请求过程"></a>web页面请求过程</h1><ol>
+<li>DHCP配置主机信息<ul>
+<li>假设主机最开始没有IP地址以及信息，那么就需要先使用DHCP来获取</li>
+<li>主机生成一个DHCP请求报文，并将这个报文装入具有目的端口67和源端口68的UDP报文段中</li>
+<li>该报文段则被放入一个具有广播IP目的地址(255.255.255.255)和源Ip地址(0.0.0.0)的IP数据报中</li>
+<li>该数据包则被放置在MAC帧中，该帧具有目的地址FF:FF:FF:FF:FF:FF，将广播到与交换机连接的所有设备。</li>
+<li>连接在交换机的DHCP服务器收到广播帧后，不断的向上分解得到IP数据报、UDP报文段、DHCP请求报文，之后生成DHCP ACK报文，该报文包含以下信息：IP地址、DNS服务器的IP地址、默认网关路由器的IP地址和子网掩码。该保温被放入到UDP报文段中，UDP报文段放入IP数据报中，最后放入MAC帧中</li>
+<li>该帧的目的地址是请求主机的MAC地址，因为交换机具有自学能力，之前主机发送了广播帧之后就记录了MAC地址到其转发接口的交换表现，因此现在交换机就可以直接知道应该向哪个接口发送该帧。</li>
+<li>主机收到该帧后，不断分解得到DHCP报文。之后就配置它的IP地址、子网掩码和DNS服务器的IP地址，并在其IP转发表中安装默认网关。</li>
+</ul>
+</li>
+<li>ARP解析MAC地址<ul>
+<li>主机通过浏览器生成一个TCP套接字，套接字向HTTP服务器发送HTTP请求。为了生成该套接字，主机需要知道网站的域名对应的IP地址。</li>
+<li>主机生成一个DNS查询报文，该报文具有53号端口，因为DNS服务器的端口号为53</li>
+<li>该DNS查询报文被放入目的地址为DNS服务器IP地址的IP数据报中</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>该IP数据报被放入一个以太网帧中，该帧将发送到网关路由器<ul>
+<li>DHCP过程只知道网关路由器的IP地址，为了获取网关路由器的MAC地址，需要使用ARP协议</li>
+<li>主机生成一个包含目的地址为网关路由器IP地址的ARP查询报文，将该ARP查询报文放入一个具有广播目的地址(FF:FF:FF:FF:FF:FF:FF)的以太网帧中，并向交换机发送该以太网帧，交换机将该帧发给所有的连接设备，包括网关路由器</li>
+<li>网关路由器接收到该帧后，不断向上分解得到ARP报文，发现其中的IP地址与其接口的IP地址匹配，因此就发送一个ARP回答报文，包含了他的mac地址，发回给主机。</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>DNS解析域名<ul>
+<li>知道了网关路由器的MAC地址后，就可以继续DNS的解析过程了</li>
+<li>网关路由器接收到包含DNS查询报文的以太网帧后，抽取出IP数据包，并根据转发表决定该IP数据报应该转发的路由器</li>
+<li>因为路由器具有内部网关协议（RIP、OSPF）和外部网关协议（BGP）这两种路由选择协议，因此路由表中已经配置了网关路由器到达 DNS 服务器的路由表项。</li>
+<li>到达DNS服务器后，DNS服务器抽取出DNS查询报文，并在DNS数据库中查找带解析的域名</li>
+<li>找到DNS记录以后，发送DNS回答报文，将该回答报文放入UDP报文段中，然后放入IP数据包中，通过路由器反向转发回网关路由器，并经过以太网交换机到达主机</li>
+</ul>
+</li>
+<li>HTTP请求页面<ul>
+<li>有了HTTP服务器的IP地址之后，主机就能够生成TCP套接字，该套接字将用于向web服务器发送http get报文</li>
+<li>在生成TCP套接字之前，必须先与HTTP服务器进行三次握手来建立连接。生成一个具有目的端口80的TCP SYN报文段，并向HTTP服务器发送该报文段。</li>
+<li>HTTP 服务器收到该报文段之后，生成 TCP SYN ACK 报文段，发回给主机</li>
+<li>连接建立之后，浏览器生成HTTP GET报文，并交付给HTTP服务器</li>
+<li>HTTP服务器从TCP套接字读取HTTP GET报文，生成一个HTTP响应报文，将web页面内容放入报文主体中，发回给主机。</li>
+<li>浏览器收到http响应报文后，抽取出web页面内容，之后进行渲染，显示web页面。</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/22/java-fundation-example/" rel="prev" title="java_fundation_example">
+      <i class="fa fa-chevron-left"></i> java_fundation_example
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/03/22/%E8%85%BF/" rel="next" title="腿">
+      腿 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.</span> <span class="nav-text">域名系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BC%A0%E9%80%81%E5%8D%8F%E8%AE%AE"><span class="nav-number">2.</span> <span class="nav-text">文件传送协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.</span> <span class="nav-text">动态主机配置协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86%E5%8D%8F%E8%AE%AE"><span class="nav-number">4.</span> <span class="nav-text">远程登陆协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.</span> <span class="nav-text">电子邮件协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SMTP"><span class="nav-number">5.1.</span> <span class="nav-text">SMTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#POP3"><span class="nav-number">5.2.</span> <span class="nav-text">POP3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IMAP"><span class="nav-number">5.3.</span> <span class="nav-text">IMAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%AB%AF%E5%8F%A3"><span class="nav-number">5.4.</span> <span class="nav-text">常用端口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web%E9%A1%B5%E9%9D%A2%E8%AF%B7%E6%B1%82%E8%BF%87%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">web页面请求过程</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">witness</p>
+  <div class="site-description" itemprop="description">learn, love, sport, life</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">witness</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'YBrYHUjJcWVmML3kft3FVqWk-gzGzoHsz',
+      appKey     : 'HtCkpAB87E1zU1Bmlwp2HFgF',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
